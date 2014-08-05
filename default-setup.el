@@ -40,6 +40,8 @@
 
 ;;yasnippet
 (yas-global-mode 1)
+
+(global-auto-complete-mode)
 (when (require 'auto-complete-config nil t)
       (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20130724.1750/dict")
       (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
@@ -271,7 +273,7 @@ kills the screen if true"
 
 ;;custom registers 
 ;;some custom registers that can be navigated to with <f8> 
-(set-register ?e '(file . "~/.emacs.el"))
+(set-register ?e '(file . "~/.emacs.d/init.el"))
 (set-register ?d '(file . "~/org/diet.org"))
 (set-register ?t '(file . "~/org/tasks.org"))
 (set-register ?x '(file . "~/org/exercise.org"))
@@ -307,6 +309,8 @@ kills the screen if true"
 ;;projectile setup
 (projectile-global-mode)
 
+;;key-chord setup
+(key-chord-mode t)
 
 
 (provide 'default-setup)

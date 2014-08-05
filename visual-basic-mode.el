@@ -210,7 +210,7 @@
   :link '(custom-group-link :tag "Font Lock Faces group" font-lock-faces)
   :group 'languages   )
 
-(defcustom visual-basic-mode-indent 2
+(defcustom visual-basic-mode-indent 4
   "*Default indentation per nesting level.
 
 Default value is 3 as per http://en.wikibooks.org/wiki/Visual_Basic/Coding_Standards#White_Space_and_Indentation."
