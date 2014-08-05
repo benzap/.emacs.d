@@ -1,2 +1,16 @@
 # Compiled
+*.cache
 *.elc
+*.eld
+*~
+.mc-lists.el
+abbrev_defs
+ac-comphist.dat
+auto-save-list/
+bookmarks
+custom.el
+elpa/
+eshell/
+plantuml-server/
+project-explorer-cache/
+url/
