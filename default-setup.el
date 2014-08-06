@@ -73,6 +73,8 @@
   (setq org-default-notes-file (concat org-directory "/refile.org"))
   (define-key global-map "\C-cc" 'org-capture)
 
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
   ;;adding autocommit hook this will automatically commit and push the
   ;; org file after it's been saved
   (package-require 'git-auto-commit-mode)
