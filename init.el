@@ -45,15 +45,21 @@
 (package-require 'monky)
 (package-require 'multiple-cursors)
 ;;(package-require 'plantuml-mode)
+(package-require 'org-bullets)
 (package-require 'project-explorer)
 (package-require 'projectile)
 (package-require 'rainbow-delimiters)
 (package-require 'rainbow-mode)
 (package-require 'smartparens)
+(package-require 'sql-indent)
 (require 'smartparens-config)
+(defalias 'tab-width 'default-tab-width)
+(package-require 'tsql)
 (package-require 'undo-tree)
 (package-require 'web-mode)
 (package-require 'yasnippet)
+
+
 
 (if (system-type-is-win32)
     (setenv "PATH"

@@ -314,5 +314,14 @@ kills the screen if true"
 ;;key-chord setup
 (key-chord-mode t)
 
+;;sql setup
+(eval-after-load "sql"
+  '(progn
+     '(load-library "tsql")
+     '(load-library "sql-indent")
+     '(setq sql-product 'ms)))
+
+
+
 
 (provide 'default-setup)
