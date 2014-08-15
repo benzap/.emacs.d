@@ -51,13 +51,16 @@
 (package-require 'rainbow-delimiters)
 (package-require 'rainbow-mode)
 (package-require 'smartparens)
-(package-require 'sql-indent)
+;;(package-require 'sql-indent)
 (require 'smartparens-config)
 (defalias 'tab-width 'default-tab-width)
-(package-require 'tsql)
+;;(package-require 'tsql)
 (package-require 'undo-tree)
 (package-require 'web-mode)
 (package-require 'yasnippet)
+
+(package-require 'mediawiki)
+(package-require 'powershell-mode)
 
 
 
