@@ -62,6 +62,7 @@
 (package-require 'mediawiki)
 (package-require 'powershell-mode)
 
+(require 'ox-mediawiki)
 
 
 (if (system-type-is-win32)
