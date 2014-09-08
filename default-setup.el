@@ -253,6 +253,7 @@ kills the screen if true"
   
 ;;smartparens settings
 (add-hook 'emacs-lisp-mode-hook 'turn-on-smartparens-mode)
+(add-hook 'clojure-mode-hook 'turn-on-smartparens-mode)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-smartparens-mode)
 (add-hook 'ielm-mode-hook 'turn-on-smartparens-mode)
 (add-hook 'cider-mode-hook 'turn-on-smartparens-mode)
@@ -289,6 +290,7 @@ kills the screen if true"
 (add-to-list 'auto-mode-alist '("\\.mustache$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.inc$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 
 ;;web-mode hook changes
 (defun web-mode-hook ()
@@ -306,7 +308,8 @@ kills the screen if true"
   (when (file-exists-p vb-file)
     (progn
       (load-file vb-file)
-      (add-to-list 'auto-mode-alist '("\\.vb$" . visual-basic-mode)))))
+      (add-to-list 'auto-mode-alist '("\\.vb$" . visual-basic-mode))
+      (add-to-list 'auto-mode-alist '("\\.cls$" . visual-basic-mode)))))
 
 ;;projectile setup
 (projectile-global-mode)
