@@ -26,7 +26,7 @@
 ;;make sure we have included all of the necessary packages
 (package-require 'ace-jump-mode)
 (package-require 'auto-complete)
-(package-require 'cider)
+;;(package-require 'cider)
 (package-require 'clojure-mode)
 (package-require 'coffee-mode)
 (package-require 'dash)
@@ -49,7 +49,7 @@
 (package-require 'project-explorer)
 (package-require 'projectile)
 (package-require 'rainbow-delimiters)
-(package-require 'rainbow-mode)
+(package-require 'rainbow-blocks)
 (package-require 'smartparens)
 ;;(package-require 'sql-indent)
 (require 'smartparens-config)

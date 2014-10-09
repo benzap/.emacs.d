@@ -266,7 +266,7 @@ kills the screen if true"
 
 ;;rainbow global hook
 (defun my-rainbow-find-file-hook ()
-  (rainbow-mode)
+  ;;(rainbow-blocks-mode)
   (rainbow-delimiters-mode)
   (subword-mode))
 (add-hook 'find-file-hook 'my-rainbow-find-file-hook)
