@@ -6,14 +6,14 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (setq inhibit-splash-screen t)
 
-(setq site-lisp-dir
-      (expand-file-name "site-lisp" user-emacs-directory))
+(setq lisp-dir
+      (expand-file-name "lisp" user-emacs-directory))
 
 ;; Set up load path
-(add-to-list 'load-path user-emacs-directory)
-(add-to-list 'load-path site-lisp-dir)
+;;(add-to-list 'load-path user-emacs-directory)
+(add-to-list 'load-path lisp-dir)
 
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setq custom-file (expand-file-name "custom.el" lisp-dir))
 (load custom-file t)
 
 ;;grab our set of utility functions
