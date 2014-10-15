@@ -61,6 +61,7 @@
 
 (package-require 'mediawiki)
 (package-require 'powershell-mode)
+(package-require 'god-mode)
 
 (require 'ox-mediawiki)
 
