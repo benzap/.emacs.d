@@ -266,7 +266,7 @@ kills the screen if true"
 
 ;;rainbow global hook
 (defun my-rainbow-find-file-hook ()
-  (rainbow-mode)
+  ;;(rainbow-blocks-mode)
   (rainbow-delimiters-mode)
   (subword-mode))
 (add-hook 'find-file-hook 'my-rainbow-find-file-hook)
@@ -304,7 +304,7 @@ kills the screen if true"
 (add-hook 'web-mode-hook 'web-mode-hook)
 
 ;;if the visual-basic-mode.el file exists, add the mode for it
-(let ((vb-file "~/.emacs.d/visual-basic-mode.el"))
+(let ((vb-file "~/.emacs.d/lisp/visual-basic-mode.el"))
   (when (file-exists-p vb-file)
     (progn
       (load-file vb-file)
@@ -324,6 +324,15 @@ kills the screen if true"
      '(load-library "sql-indent")
      '(setq sql-product 'ms)))
 
+;;remove '^M' from DOS encoded files
+(defun remove-dos-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
+
+(add-hook 'text-mode-hook 'remove-dos-eol)
+(add-hook 'sql-mode-hook 'remove-dos-eol)
 
 
 

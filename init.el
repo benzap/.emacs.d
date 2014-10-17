@@ -6,14 +6,14 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (setq inhibit-splash-screen t)
 
-(setq site-lisp-dir
-      (expand-file-name "site-lisp" user-emacs-directory))
+(setq lisp-dir
+      (expand-file-name "lisp" user-emacs-directory))
 
 ;; Set up load path
-(add-to-list 'load-path user-emacs-directory)
-(add-to-list 'load-path site-lisp-dir)
+;;(add-to-list 'load-path user-emacs-directory)
+(add-to-list 'load-path lisp-dir)
 
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setq custom-file (expand-file-name "custom.el" lisp-dir))
 (load custom-file t)
 
 ;;grab our set of utility functions
@@ -26,7 +26,7 @@
 ;;make sure we have included all of the necessary packages
 (package-require 'ace-jump-mode)
 (package-require 'auto-complete)
-(package-require 'cider)
+;;(package-require 'cider)
 (package-require 'clojure-mode)
 (package-require 'coffee-mode)
 (package-require 'dash)
@@ -49,7 +49,7 @@
 (package-require 'project-explorer)
 (package-require 'projectile)
 (package-require 'rainbow-delimiters)
-(package-require 'rainbow-mode)
+(package-require 'rainbow-blocks)
 (package-require 'smartparens)
 ;;(package-require 'sql-indent)
 (require 'smartparens-config)
@@ -61,6 +61,7 @@
 
 (package-require 'mediawiki)
 (package-require 'powershell-mode)
+(package-require 'god-mode)
 
 ;;(require 'ox-mediawiki)
 
