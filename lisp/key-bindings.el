@@ -93,5 +93,7 @@
 ;;function for compiling code
 (global-set-key (kbd "<f5>") 'recompile)
 
+(global-set-key (kbd "<f1>") 'god-local-mode)
+
 
 (provide 'key-bindings)

@@ -304,7 +304,7 @@ kills the screen if true"
 (add-hook 'web-mode-hook 'web-mode-hook)
 
 ;;if the visual-basic-mode.el file exists, add the mode for it
-(let ((vb-file "~/.emacs.d/visual-basic-mode.el"))
+(let ((vb-file "~/.emacs.d/lisp/visual-basic-mode.el"))
   (when (file-exists-p vb-file)
     (progn
       (load-file vb-file)

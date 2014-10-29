@@ -6,6 +6,9 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (setq inhibit-splash-screen t)
 
+(set-face-attribute 'default nil :family "Inconsolata" :height 120)
+;;(set-face-attribute 'default nil :family "Anonymous Pro" :height 120)
+
 (setq lisp-dir
       (expand-file-name "lisp" user-emacs-directory))
 
@@ -61,6 +64,7 @@
 
 (package-require 'mediawiki)
 (package-require 'powershell-mode)
+(package-require 'god-mode)
 
 ;;(require 'ox-mediawiki)
 
