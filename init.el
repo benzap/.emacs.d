@@ -9,6 +9,10 @@
 (set-face-attribute 'default nil :family "Inconsolata" :height 120)
 ;;(set-face-attribute 'default nil :family "Anonymous Pro" :height 120)
 
+;;HDPC Bigger Text Size
+(when (string= (getenv "COMPUTERNAME") "TINA")
+  (set-face-attribute 'default nil :family "Inconsolata" :height 140))
+
 (setq lisp-dir
       (expand-file-name "lisp" user-emacs-directory))
 
