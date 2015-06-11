@@ -16,6 +16,9 @@
 (setq lisp-dir
       (expand-file-name "lisp" user-emacs-directory))
 
+;;turn off magit warning
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 ;; Set up load path
 ;;(add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path lisp-dir)
@@ -67,7 +70,7 @@
 (package-require 'yasnippet)
 
 (package-require 'mediawiki)
-(package-require 'powershell-mode)
+;;(package-require 'powershell-mode)
 (package-require 'god-mode)
 
 ;;(require 'ox-mediawiki)
