@@ -81,7 +81,6 @@
 ;;Project Explorer Key
 (global-set-key (kbd "M-p") 'project-explorer-open)
 
-;;Bookmark files functionality
 ;;sane revert buffer key
 (global-set-key (kbd "C-x C-r") 'revert-buffer)
 

@@ -9,18 +9,12 @@
 (set-face-attribute 'default nil :family "Inconsolata" :height 120)
 ;;(set-face-attribute 'default nil :family "Anonymous Pro" :height 120)
 
-;;HDPC Bigger Text Size
+;;HTPC Bigger Text Size
 (when (string= (getenv "COMPUTERNAME") "TINA")
   (set-face-attribute 'default nil :family "Inconsolata" :height 140))
 
-(setq lisp-dir
-      (expand-file-name "lisp" user-emacs-directory))
-
-;;turn off magit warning
-(setq magit-last-seen-setup-instructions "1.4.0")
-
 ;; Set up load path
-;;(add-to-list 'load-path user-emacs-directory)
+(setq lisp-dir (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path lisp-dir)
 
 (setq custom-file (expand-file-name "custom.el" lisp-dir))
@@ -33,47 +27,42 @@
 ;;setup the appearance
 (require 'appearance)
 
-;;make sure we have included all of the necessary packages
+;; Loading Configurations with Included Packages
+(add-to-list 'load-path (expand-file-name "configs" lisp-dir))
+;;
+;;(require 'plantuml-config)
+(require 'ido-config)
+(require 'escreen-config)
+(require 'org-config)
+(require 'ac-config)
+(require 'erc-config)
+(require 'eldoc-config)
+(require 'rainbow-config)
+(require 'key-chord-config)
+(require 'diff-hl-config)
+(require 'projectile-config)
+(require 'smartparens-mode-config)
+(require 'magit-config)
+(require 'monky-config)
+(require 'lua-config)
+(require 'cpp-config)
+(require 'web-mode-config)
+(require 'zone-config)
+(require 'git-auto-commit-config)
+(require 'yasnippet-config)
+(require 'visual-basic-config)
+
+;; Random set of packages being loaded
 (package-require 'ace-jump-mode)
-(package-require 'auto-complete)
-;;(package-require 'cider)
 (package-require 'clojure-mode)
-(package-require 'coffee-mode)
 (package-require 'dash)
-(package-require 'diff-hl)
-(package-require 'escreen)
 (package-require 'expand-region)
-(package-require 'flx-ido)
-(package-require 'git-auto-commit-mode)
-(package-require 'graphviz-dot-mode)
-(package-require 'ido-hacks)
-(package-require 'idomenu)
 (package-require 'iy-go-to-char)
-(package-require 'key-chord)
-(package-require 'lua-mode)
-(package-require 'magit)
-(package-require 'monky)
 (package-require 'multiple-cursors)
-;;(package-require 'plantuml-mode)
-(package-require 'org-bullets)
 (package-require 'project-explorer)
-(package-require 'projectile)
-(package-require 'rainbow-delimiters)
-(package-require 'rainbow-blocks)
-(package-require 'smartparens)
-;;(package-require 'sql-indent)
-(require 'smartparens-config)
-(defalias 'tab-width 'default-tab-width)
-;;(package-require 'tsql)
 (package-require 'undo-tree)
-(package-require 'web-mode)
-(package-require 'yasnippet)
-
-(package-require 'mediawiki)
-;;(package-require 'powershell-mode)
 (package-require 'god-mode)
-
-;;(require 'ox-mediawiki)
+;;(package-require 'cider)
 
 
 (if (system-type-is-win32)
@@ -85,13 +74,6 @@
 
 (require 'default-setup)
 (require 'key-bindings)
-
-
-
-
-
-
-
 
 
 (custom-set-variables
