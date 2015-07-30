@@ -22,9 +22,10 @@
 ;;disable auto save                                    
 (setq auto-save-default nil)
 
-
 (put 'narrow-to-region 'disabled nil)
 
+;;turn off electric indent
+(electric-indent-mode 0)
 
 ;;auto fill mode for all text buffers
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
