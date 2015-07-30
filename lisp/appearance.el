@@ -7,7 +7,7 @@
     (progn 
       (package-require 'color-theme)
       (color-theme-initialize)
-      (color-theme-jsc-dark))
+      (color-theme-tty-dark))
   (progn 
      (package-require 'waher-theme)
      (load-theme 'waher t t)))
