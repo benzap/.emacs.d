@@ -51,6 +51,7 @@
 (require 'git-auto-commit-config)
 (require 'yasnippet-config)
 (require 'visual-basic-config)
+(require 'flycheck-mode-config)
 
 ;; Random set of packages being loaded
 (package-require 'ace-jump-mode)
