@@ -17,9 +17,6 @@
 (setq lisp-dir (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path lisp-dir)
 
-(setq custom-file (expand-file-name "custom.el" lisp-dir))
-(load custom-file t)
-
 ;;grab our set of utility functions
 (require 'package-utils)
 (require 'utils)
@@ -76,6 +73,9 @@
 (require 'default-setup)
 (require 'key-bindings)
 
+;; Load custom.el file
+(setq custom-file (expand-file-name "custom.el" lisp-dir))
+(load custom-file t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
