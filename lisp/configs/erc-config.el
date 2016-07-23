@@ -53,4 +53,6 @@
 
 (setq erc-lurker-threshold-time 3600)
 
+(setq erc-hide-list '("JOIN" "PART" "QUIT"))
+
 (provide 'erc-config)
