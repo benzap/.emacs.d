@@ -39,6 +39,7 @@
 (require 'diff-hl-config)
 (require 'projectile-config)
 (require 'smartparens-mode-config)
+;;(require 'parinfer-mode-config)
 (require 'magit-config)
 (require 'monky-config)
 (require 'lua-config)
@@ -49,6 +50,7 @@
 (require 'yasnippet-config)
 (require 'visual-basic-config)
 (require 'flycheck-mode-config)
+(require 'cargo-config)
 
 ;; Random set of packages being loaded
 (package-require 'ace-jump-mode)
