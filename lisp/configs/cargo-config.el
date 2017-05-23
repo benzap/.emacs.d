@@ -2,10 +2,12 @@
 (require 'package-utils)
 
 ;;Dependencies
+(package-require 's)
 (package-require 'rust-mode)
 (package-require 'cargo)
 (package-require 'flycheck-rust)
 (package-require 'racer)
+(package-require 'company)
 
 ;;Cargo setup functionality
 (add-hook 'rust-mode-hook 'cargo-minor-mode)
@@ -26,7 +28,8 @@
 ;; TODO - make this work with all versions
 ;; `rustc --print sysroot` + /lib/rustlib/src/rust/src
 
-(setq racer-rust-src-path "C:\\Users\\benzap\\.rustup\\toolchains\\stable-x86_64-pc-windows-msvc\\lib\\rustlib\\src\\rust\\src")
+(setq racer-rust-src-path
+      (concat (s-trim (shell-command-to-string "rustc --print sysroot")) "\\lib\\rustlib\\src\\rust\\src"))
 
 
 (provide 'cargo-config)
