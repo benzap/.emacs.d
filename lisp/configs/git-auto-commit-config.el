@@ -17,7 +17,7 @@
     (if (member (concat org-directory "/" (buffer-name)) org-agenda-files)
 	(git-auto-commit-mode 1))))
 
-(add-hook 'find-file-hook 'git-auto-commit-hook)
+;;(add-hook 'find-file-hook 'git-auto-commit-hook)
 
 (provide 'git-auto-commit-config)
 

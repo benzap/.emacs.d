@@ -46,12 +46,12 @@
 ;;custom registers 
 ;;some custom registers that can be navigated to with <f8> 
 (set-register ?e '(file . "~/.emacs.d/init.el"))
-(set-register ?d '(file . "~/org/diet.org"))
-(set-register ?t '(file . "~/org/tasks.org"))
-(set-register ?x '(file . "~/org/exercise.org"))
-(set-register ?j '(file . "~/org/journal.org"))
-(set-register ?a '(file . "~/org/apersonal.org"))
-(set-register ?n '(file . "~/org/notes.org"))
+(set-register ?d '(file . "~/priv/notes/diet.org"))
+(set-register ?t '(file . "~/priv/notes/tasks.org"))
+(set-register ?x '(file . "~/priv/notes/exercise.org"))
+(set-register ?j '(file . "~/priv/notes/journal.org"))
+(set-register ?a '(file . "~/priv/notes/apersonal.org"))
+(set-register ?n '(file . "~/priv/notes/notes.org"))
 
 ;;remove '^M' from DOS encoded files
 (defun remove-dos-eol ()
