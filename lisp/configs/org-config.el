@@ -6,6 +6,9 @@
 ;;dependent packages
 (package-require 'org-bullets)
 
+;; Location of everything
+(setq org-directory "~/priv/notes/")
+(setq org-default-notes-file (concat org-directory "refile.org"))
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
@@ -13,17 +16,24 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cc" 'org-capture)
 
-(setq org-log-done t)
-(setq org-agenda-files (list "~/org/apersonal.org"
-			     "~/org/diet.org" 
-			     "~/org/exercise.org"
-			     "~/org/journal.org"
-			     "~/org/tasks.org"
-			     "~/org/finance.org"
-			     "~/org/notes.org"))
+(setq org-file-tasks (concat org-directory "tasks.org"))
+(setq org-file-personal (concat org-directory "apersona.org"))
+(setq org-file-diet (concat org-directory "diet.org"))
+(setq org-file-exercise (concat org-directory "exercise.org"))
+(setq org-file-journal (concat org-directory "journal.org"))
+(setq org-file-finance (concat org-directory "finance.org"))
+(setq org-file-notes (concat org-directory "notes.org"))
 
-(setq org-directory "~/org")
-(setq org-default-notes-file (concat org-directory "/refile.org"))
+(setq org-log-done t)
+(setq org-agenda-files
+      (list org-file-tasks
+	    org-file-personal
+	    org-file-diet
+	    org-file-exercise
+	    org-file-journal
+	    org-file-finance
+	    org-file-notes))
+
 
 
 
@@ -38,17 +48,17 @@
 	("b" "Books" tags "BOOK")))
 
 (setq org-capture-templates
-      '(("t" "Todo Task" entry (file+headline "~/org/tasks.org" "Tasks")
+      '(("t" "Todo Task" entry (file+headline org-file-tasks "Tasks")
 	 "* TODO %? %^g")
-	("p" "Project Task" entry (file+headline "~/org/tasks.org" "Projects")
+	("p" "Project Task" entry (file+headline org-file-tasks "Projects")
 	 "* TODO %? %^g")
-	("w" "Work Task" entry (file+headline "~/org/tasks.org" "Work")
+	("w" "Work Task" entry (file+headline org-file-tasks "Work")
 	 "* TODO %? %^g")
-	("j" "Journal" entry (file+datetree "~/org/journal.org")
+	("j" "Journal" entry (file+datetree org-file-journal)
 	 "* %?\nEntered on %U\n  %i\n  %a")
-	("f" "Food Entry" entry (file+headline "~/org/diet.org" "Refile")
+	("f" "Food Entry" entry (file+headline org-file-diet "Refile")
 	 "* %U - %?:FOOD:")
-	("r" "Refile" entry (file+headline "~/org/tasks.org" "Refile")
+	("r" "Refile" entry (file+headline org-file-tasks "Refile")
 	 "* %U - %? %^g:NOTE:")))
 
 
