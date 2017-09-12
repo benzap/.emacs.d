@@ -3,6 +3,7 @@
 
 ;;Dependencies
 (package-require 'flycheck)
+(package-require 'flycheck-mypy)
 
 ;;setup python for flycheck
 (setq flycheck-pylintrc 
