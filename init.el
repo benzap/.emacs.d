@@ -44,6 +44,8 @@
 (require 'magit-config)
 (require 'monky-config)
 (require 'lua-config)
+(require 'python-config)
+(require 'yaml-config)
 (require 'cpp-config)
 (require 'web-mode-config)
 (require 'zone-config)
