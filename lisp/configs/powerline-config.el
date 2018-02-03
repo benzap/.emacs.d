@@ -22,5 +22,6 @@
 (diminish 'yas-minor-mode)
 (diminish 'smartparens-mode)
 (diminish 'eldoc-mode)
+(diminish 'auto-revert-mode)
 
 (provide 'powerline-config)
