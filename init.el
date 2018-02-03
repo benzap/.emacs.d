@@ -54,6 +54,7 @@
 (require 'visual-basic-config)
 (require 'flycheck-mode-config)
 (require 'cargo-config)
+(require 'origami-config)
 
 ;; Random set of packages being loaded
 (package-require 'ace-jump-mode)
@@ -66,6 +67,9 @@
 (package-require 'undo-tree)
 (package-require 'god-mode)
 ;;(package-require 'cider)
+
+;; Called after all packages
+(require 'powerline-config)
 
 
 (if (system-type-is-win32)
