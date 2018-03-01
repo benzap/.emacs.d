@@ -55,6 +55,7 @@
 (require 'flycheck-mode-config)
 (require 'cargo-config)
 (require 'origami-config)
+;;(require 'clojure-config)
 
 ;; Random set of packages being loaded
 (package-require 'ace-jump-mode)
