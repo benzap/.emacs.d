@@ -4,10 +4,25 @@
 ;; Dependencies
 (package-require 'clojure-mode)
 (package-require 'inf-clojure)
+(package-require 'cider)
 
 
-(autoload 'inf-clojure "inf-clojure" "Run an inferior Clojure process" t)
-(add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+(defun load-inf-clojure ()
+  (interactive)
+  (autoload 'inf-clojure "inf-clojure" "Run an inferior Clojure process" t)
+  (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode))
+
+
+(defun cider-mode-config ()
+  (local-set-key (kbd "C-c b") 'cider-eval-buffer))
+
+
+(defun load-cider ()
+  (interactive)
+  (add-hook 'cider-mode-hook 'cider-mode-config))
+
+
+(load-cider)
 
 
 (defun cljs-node-repl ()
