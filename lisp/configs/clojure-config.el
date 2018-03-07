@@ -19,7 +19,10 @@
 
 (defun load-cider ()
   (interactive)
-  (add-hook 'cider-mode-hook 'cider-mode-config))
+  (add-hook 'cider-mode-hook 'cider-mode-config)
+  
+  ;; New testing forms defined for hsynapse
+  (add-to-list 'cider-test-defining-forms "deftest-db"))
 
 
 (load-cider)
