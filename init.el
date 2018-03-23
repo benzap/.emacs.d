@@ -57,6 +57,7 @@
 (require 'origami-config)
 (require 'clojure-config)
 (require 'prolog-config)
+(require 'aspell-config)
 
 ;; Random set of packages being loaded
 (package-require 'ace-jump-mode)
