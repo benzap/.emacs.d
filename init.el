@@ -29,7 +29,7 @@
 ;;
 ;;(require 'plantuml-config)
 (require 'ido-config)
-(require 'escreen-config)
+;;(require 'escreen-config)
 (require 'org-config)
 (require 'company-config)
 (require 'ac-config)
@@ -58,6 +58,7 @@
 (require 'clojure-config)
 (require 'prolog-config)
 (require 'aspell-config)
+(require 'ethlance-config)
 
 ;; Random set of packages being loaded
 (package-require 'ace-jump-mode)
