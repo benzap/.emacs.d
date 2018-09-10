@@ -119,8 +119,7 @@
  '(erc-system-name "Who wants to know?")
  '(erc-track-minor-mode t)
  '(erc-track-mode t)
- '(erc-user-full-name "Benjamin Zaporzan")
- '(org-agenda-files (quote ("c:/Project.Repositories/iFIDS/Docs/API.org" "~/Projects/iFIDSDroidRemoteClient/readme.org" "~/Projects/iFIDSAdminUtility/readme.org" "c:/Project.Repositories/iFIDSBrowser2.0/readme.org" "c:/Project.Repositories/iFIDS/Docs/Specification/Spec_BaggageRouting.org" "~/Projects/iFIDSAndroid/readme.org" "~/org/apersonal.org" "~/org/diet.org" "~/org/exercise.org" "~/org/journal.org" "~/org/tasks.org" "~/org/finance.org" "~/org/notes.org"))))
+ '(erc-user-full-name "Benjamin Zaporzan"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

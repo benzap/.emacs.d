@@ -15,8 +15,8 @@
 (key-chord-define-global ",." 'er/expand-region)
 (key-chord-define-global "<M" 'backward-list)
 (key-chord-define-global ">?" 'forward-list)
-(key-chord-define-global "jj" 'ace-jump-mode)
-(key-chord-define-global "yy" 'yank-pop)
+;;(key-chord-define-global "jj" 'ace-jump-mode)
+;;(key-chord-define-global "yy" 'yank-pop)
 
 ;;iy-go-to-char better navigation
 (global-set-key (kbd "M-m") 'iy-go-to-char)
@@ -70,6 +70,16 @@
 ;;autofill toggle
 (global-set-key (kbd "C-c q") 'auto-fill-mode)
 
+(global-set-key (kbd "<f1>") 'god-local-mode)
+
+;;function for compiling code
+(global-set-key (kbd "<f5>") 'recompile)
+
+;;set a point with f7
+(global-set-key (kbd "<f7>") 'point-to-register)
+;;jump to that point with f8
+(global-set-key (kbd "<f8>") 'jump-to-register)
+
 ;;escreen navigation
 ;;function keys can be used to navigate between screens
 (global-set-key (kbd "<f9>") 'elscreen-create)
@@ -82,16 +92,6 @@
 
 ;;sane revert buffer key
 (global-set-key (kbd "C-x C-r") 'revert-buffer)
-
-;;set a point with f7
-(global-set-key (kbd "<f7>") 'point-to-register)
-;;jump to that point with f8
-(global-set-key (kbd "<f8>") 'jump-to-register)
-
-;;function for compiling code
-(global-set-key (kbd "<f5>") 'recompile)
-
-(global-set-key (kbd "<f1>") 'god-local-mode)
 
 
 (provide 'key-bindings)
