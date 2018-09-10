@@ -2,20 +2,20 @@
 (require 'package-utils)
 
 ;;Dependencies
-(package-require 'escreen)
+(package-require 'elscreen)
 
 ;;Escreen setup functionality
-(escreen-install)
-(escreen-number-mode 1)
-(setq escreen-prefix-char "\C-z")
-(global-set-key escreen-prefix-char 'escreen-prefix)
+(elscreen-start)
+(elscreen-toggle-display-tab)
+(setq elscreen-prefix-char "\C-z")
+(global-set-key elscreen-prefix-char 'elscreen-prefix)
 
 ;;Function to prompt before killing the given screen
-(defun escreen-prompt-kill-p ()
+(defun elscreen-prompt-kill-p ()
   "Prompts the user whether they want to kill the current screen,
 kills the screen if true"
   (interactive)
   (if (y-or-n-p "Kill Current Escreen?") 
-      (escreen-kill-screen)))
+      (elscreen-kill)))
 
 (provide 'escreen-config)

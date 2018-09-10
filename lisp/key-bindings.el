@@ -72,11 +72,10 @@
 
 ;;escreen navigation
 ;;function keys can be used to navigate between screens
-(global-set-key (kbd "<f9>") 'escreen-create-screen)
-(global-set-key (kbd "<f10>") 'escreen-goto-prev-screen)
-(global-set-key (kbd "<f11>") 'escreen-goto-next-screen)
-;;(global-set-key (kbd "<f12>") 'escreen-kill-screen)
-(global-set-key (kbd "<f12>") 'escreen-prompt-kill-p)
+(global-set-key (kbd "<f9>") 'elscreen-create)
+(global-set-key (kbd "<f10>") 'elscreen-previous)
+(global-set-key (kbd "<f11>") 'elscreen-next)
+(global-set-key (kbd "<f12>") 'elscreen-prompt-kill-p)
 
 ;;Project Explorer Key
 (global-set-key (kbd "M-p") 'project-explorer-open)

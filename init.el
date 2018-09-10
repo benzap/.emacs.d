@@ -29,7 +29,7 @@
 ;;
 ;;(require 'plantuml-config)
 (require 'ido-config)
-;;(require 'escreen-config)
+(require 'escreen-config)
 (require 'org-config)
 (require 'company-config)
 (require 'ac-config)
