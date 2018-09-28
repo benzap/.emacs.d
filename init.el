@@ -27,7 +27,7 @@
 ;; Loading Configurations with Included Packages
 (add-to-list 'load-path (expand-file-name "configs" lisp-dir))
 ;;
-;;(require 'plantuml-config)
+(require 'plantuml-config)
 (require 'ido-config)
 (require 'escreen-config)
 (require 'org-config)

@@ -9,7 +9,7 @@
   "Root directory of ethlance repo")
 
 (defun ethlance-project-exists? ()
-  (file-exists-p (concat ethlance-project-directory "/project.clj")))
+  (file-exists-p (concat ethlance-project-directory "/ethlance.el")))
 
 ;;(ethlance-project-exists?)
 
