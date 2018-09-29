@@ -1,13 +1,13 @@
-(message "Loading lua-mode Configuration...")
-(require 'package-utils)
+;; Lua-mode Configuration
 
-;;Dependencies
-(package-require 'lua-mode)
 
-(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
-(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
-(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
-(setq lua-indent-level 4)
-(add-hook 'lua-mode-hook (lambda () (setq tab-width 4)))
+(use-package lua-mode
+  :ensure t
+  :mode ("\\.lua\\'" . lua-mode)
+  :interpreter ("lua" . lua-mode)
+  :config
+  (message "Loading lua-mode Configuration...")
+  (setq lua-indent-level 4))
+
 
 (provide 'lua-config)

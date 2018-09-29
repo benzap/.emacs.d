@@ -1,12 +1,7 @@
-(message "Loading parinfer Configuration")
-(require 'package-utils)
+;; Parinfer Configuration
 
-;;Dependencies
-(package-require 'use-package)
 (package-require 'parinfer)
 (package-require 'paredit)
-(require 'parinfer)
-
 
 (use-package parinfer
   :ensure t
@@ -25,7 +20,9 @@
     (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
     (add-hook 'common-lisp-mode-hook #'parinfer-mode)
     (add-hook 'scheme-mode-hook #'parinfer-mode)
-    (add-hook 'lisp-mode-hook #'parinfer-mode)))
+    (add-hook 'lisp-mode-hook #'parinfer-mode))
+  :config
+  (message "Loading parinfer Configuration"))
 
 
 (provide 'parinfer-mode-config)

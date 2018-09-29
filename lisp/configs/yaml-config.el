@@ -1,11 +1,11 @@
-(message "Loading yaml-mode Configuration...")
-(require 'package-utils)
-
-;;Dependencies
-(package-require 'yaml-mode)
+;; yaml mode configuration
 
 
-(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
+(use-package yaml-mode
+  :ensure t
+  :mode ("\\.yaml\\'" "\\.yml\\'")
+  :config
+  (message "Loading yaml-mode Configuration..."))
+
 
 (provide 'yaml-config)

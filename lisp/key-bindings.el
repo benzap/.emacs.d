@@ -2,24 +2,31 @@
 
 ;;for setting tabs
 (global-set-key (kbd "C-; t") 
-		'(lambda () 
-		   (interactive)
-		   (set-variable 'tab-width 4)))
+    '(lambda () 
+       (interactive)
+       (set-variable 'tab-width 4)))
 (global-set-key (kbd "C-; C-t") 
-		'(lambda () 
-		   (interactive)
-		   (set-variable 'tab-width 4)))
+    '(lambda () 
+       (interactive)
+       (set-variable 'tab-width 4)))
 
-(global-set-key (kbd "C-'") 'ace-jump-mode)
+(use-package ace-jump-mode
+  :ensure t
+  :bind (("C-'" . ace-jump-mode)))
 
-(key-chord-define-global ",." 'er/expand-region)
+(use-package expand-region
+  :ensure t
+  :commands (er/expand-region)
+  :chords ((",." . er/expand-region)))
+
 (key-chord-define-global "<M" 'backward-list)
 (key-chord-define-global ">?" 'forward-list)
-;;(key-chord-define-global "jj" 'ace-jump-mode)
-;;(key-chord-define-global "yy" 'yank-pop)
 
 ;;iy-go-to-char better navigation
-(global-set-key (kbd "M-m") 'iy-go-to-char)
+(use-package iy-go-to-char
+  :ensure t
+  :bind (("M-m" . iy-go-to-char)))
+
 (global-set-key (kbd "C-c C-r") 'rename-sgml-tag)
 
 ;;setting cursor movement for alt key plus ijkl
@@ -28,28 +35,22 @@
 (global-set-key (kbd "M-i") 'previous-line)
 (global-set-key (kbd "M-k") 'next-line)
 
-;;unused
-(defun ido-imenu-push-mark ()
-  (interactive)
-  (let ((push-mark-before-goto-char t))
-    (idomenu)))
-
-(global-set-key (kbd "C-x C-i") 'idomenu)
-
 
 ;;multiple cursors key bindings
-(global-set-key (kbd "C-.") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-!") 'mc/mark-all-like-this)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(use-package multiple-cursors
+  :ensure t
+  :commands (mc/mark-next-like-this
+             mc/mark-previous-like-this
+             mc/mark-all-like-this
+             mc/edit-lines)
+  :bind (("C-." . mc/mark-next-like-this)
+         ("C-," . mc/mark-previous-like-this)
+         ("C-!" . mc/mark-all-like-this)))
 
-;setup ibuffers
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(autoload 'ibuffer "ibuffer" "List buffers." t)
 
-(when (require 'plantuml-server nil t)
-  (global-set-key (kbd "C-c s") 'plantuml-eval-to-browser)
-  (global-set-key (kbd "C-c d") 'plantuml-eval-to-other-window))
+;; setup ibuffers
+(use-package ibuffer
+  :bind (("C-x C-b" . ibuffer)))
 
 ;;used like M-x instead
 (global-set-key (kbd "C-; C-;") 'execute-extended-command)
@@ -70,7 +71,9 @@
 ;;autofill toggle
 (global-set-key (kbd "C-c q") 'auto-fill-mode)
 
-(global-set-key (kbd "<f1>") 'god-local-mode)
+(use-package god-mode
+  :commands (god-local-mode)
+  :bind (([f1] . god-local-mode)))
 
 ;;function for compiling code
 (global-set-key (kbd "<f5>") 'recompile)
@@ -79,16 +82,6 @@
 (global-set-key (kbd "<f7>") 'point-to-register)
 ;;jump to that point with f8
 (global-set-key (kbd "<f8>") 'jump-to-register)
-
-;;escreen navigation
-;;function keys can be used to navigate between screens
-(global-set-key (kbd "<f9>") 'elscreen-create)
-(global-set-key (kbd "<f10>") 'elscreen-previous)
-(global-set-key (kbd "<f11>") 'elscreen-next)
-(global-set-key (kbd "<f12>") 'elscreen-prompt-kill-p)
-
-;;Project Explorer Key
-(global-set-key (kbd "M-p") 'project-explorer-open)
 
 ;;sane revert buffer key
 (global-set-key (kbd "C-x C-r") 'revert-buffer)

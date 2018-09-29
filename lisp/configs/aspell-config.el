@@ -1,7 +1,4 @@
 (message "Loading aspell Configuration...")
-(require 'package-utils)
-
-;;Dependencies
 
 
 (setq ispell-program-name "aspell")

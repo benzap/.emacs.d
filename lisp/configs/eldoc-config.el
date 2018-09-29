@@ -1,13 +1,14 @@
-(message "Loading eldoc Configuration...")
-(require 'package-utils)
+;; eldoc Configuration
 
-;;Dependencies
-;;...
+(use-package eldoc
+  :after (cider)
+  :commands (turn-on-eldoc-mode)
+  :hook ((emacs-lisp-mode . turn-on-eldoc-mode)
+         (lisp-interaction-mode . turn-on-eldoc-mode)
+         (ielm-mode . turn-on-eldoc-mode)
+         (cider-mode . cider-turn-on-eldoc-mode))
+  :config
+  (message "Loading eldoc Configuring..."))
 
-;;setting up eldoc
-(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
 (provide 'eldoc-config)

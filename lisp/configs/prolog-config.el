@@ -1,9 +1,10 @@
-(message "Loading prolog Configuration...")
-(require 'package-utils)
+;; Prolog Configuration
 
 
-(autoload 'prolog-mode "prolog" "Major mode for editing Prolog programs." t)
-(add-to-list 'auto-mode-alist '("\\.pl\\'" . prolog-mode))
+(use-package prolog-mode
+  :mode "\\.pl\\'"
+  :config
+  (message "Loading Prolog Configuration..."))
 
 
 (provide 'prolog-config)

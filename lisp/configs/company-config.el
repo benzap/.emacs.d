@@ -1,7 +1,8 @@
-(message "Loading company Configuration...")
-(require 'package-utils)
+;; Company Configuration
 
-;;Dependencies
-(package-require 'company)
+(use-package company
+  :disabled
+  :config
+  (message "Loading company Configuration..."))
 
 (provide 'company-config)

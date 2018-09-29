@@ -1,10 +1,10 @@
 (message "Loading Org Configuration...")
 
-(require 'package-utils)
 
-
-;;dependent packages
-(package-require 'org-bullets)
+(use-package org-bullets
+  :ensure t
+  :after (org)
+  :hook (org-mode . org-bullets-mode))
 
 ;; Location of everything
 (setq org-directory "~/priv/notes/")
@@ -42,9 +42,6 @@
 	    org-file-notes
 	    org-work-tasks
 	    org-work-journal))
-
-
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 
 ;;Custom Agenda Commands

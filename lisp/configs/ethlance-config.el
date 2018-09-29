@@ -1,8 +1,4 @@
-(message "Loading ethlance Configuration...")
-(require 'package-utils)
-
-
-;; Dependencies
+;; Ethlance Configuration
 
 (defcustom ethlance-project-directory
   "~/projects/ethlance"
@@ -14,6 +10,7 @@
 ;;(ethlance-project-exists?)
 
 (when (ethlance-project-exists?)
+  (message "Loading ethlance Configuration...")
   (add-to-list 'load-path ethlance-project-directory)
   (require 'ethlance)
   (setq ethlance-root ethlance-project-directory))

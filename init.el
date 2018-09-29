@@ -1,4 +1,9 @@
 ;;Main initialization of emacs
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
 (package-initialize)
 
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
@@ -26,7 +31,8 @@
 
 ;; Loading Configurations with Included Packages
 (add-to-list 'load-path (expand-file-name "configs" lisp-dir))
-;;
+
+(require 'use-package-config)
 (require 'plantuml-config)
 (require 'ido-config)
 (require 'escreen-config)
@@ -53,24 +59,21 @@
 (require 'yasnippet-config)
 (require 'visual-basic-config)
 (require 'flycheck-mode-config)
-(require 'cargo-config)
+;;(require 'cargo-config)
 (require 'origami-config)
 (require 'clojure-config)
 (require 'prolog-config)
 (require 'aspell-config)
 (require 'ethlance-config)
+(require 'auto-package-update-config)
 
 ;; Random set of packages being loaded
-(package-require 'ace-jump-mode)
-(package-require 'clojure-mode)
 (package-require 'dash)
-(package-require 'expand-region)
-(package-require 'iy-go-to-char)
-(package-require 'multiple-cursors)
-(package-require 'project-explorer)
-(package-require 'undo-tree)
-(package-require 'god-mode)
-;;(package-require 'cider)
+(package-require 's)
+(use-package undo-tree
+  :ensure t
+  :diminish undo-tree-mode
+  :commands (undo-tree-visualize))
 
 ;; Called after all packages
 (require 'powerline-config)

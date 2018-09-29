@@ -60,6 +60,8 @@
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
+
+(add-hook 'prog-mode-hook 'remove-dos-eol)
 (add-hook 'text-mode-hook 'remove-dos-eol)
 (add-hook 'sql-mode-hook 'remove-dos-eol)
 

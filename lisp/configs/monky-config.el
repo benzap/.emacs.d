@@ -1,10 +1,12 @@
-(message "Loading Monky Configuration...")
+;; Monky Configuration
 
-(require 'package-utils)
 
-;;Dependencies
-(package-require 'monky)
-
-(setq monky-process-type 'cmdserver)
+(use-package monky
+  :ensure t
+  :commands (monky)
+  :config
+  (message "Loading Monky Configuration...")
+  (setq monky-process-type 'cmdserver))
+  
 
 (provide 'monky-config)

@@ -43,6 +43,7 @@
 ;;fixing indentation for long names
 (defun my-indent-setup ()
   (c-set-offset 'arglist-intro '+))
+
 (add-hook 'cc-mode-hook 'my-indent-setup)
 
 ;;the c/c++ programming style to use
