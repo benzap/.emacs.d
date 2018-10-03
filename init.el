@@ -33,6 +33,7 @@
 (add-to-list 'load-path (expand-file-name "configs" lisp-dir))
 
 (require 'use-package-config)
+(require 'solidity-config)
 (require 'plantuml-config)
 (require 'ido-config)
 (require 'escreen-config)

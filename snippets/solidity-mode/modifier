@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: modifier
+# key: m
+# --
+/// @dev FIXME
+modifier ${1:name}(${2:params}) {
+    $0
+    _;
+}

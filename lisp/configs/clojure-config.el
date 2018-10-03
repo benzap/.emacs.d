@@ -29,7 +29,12 @@
 
 
 (use-package cider
-  :commands (cider-jack-in cider-connect cider-connect-clj cider-connect-cljs)
+  :commands (cider-jack-in
+             cider-jack-in-clj
+             cider-jack-in-cljs
+             cider-connect
+             cider-connect-clj
+             cider-connect-cljs)
   :ensure t
   :after (:any clojure-mode clojurescript-mode clojurec-mode)
   :hook (cider-mode . cider-mode-config)

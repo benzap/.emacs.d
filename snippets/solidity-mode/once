@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: once
+# key: once
+# --
+pragma solidity ^0.4.24;
+
+/// @title ${1: Title}
+contract ${2:Contract Name} {
+    $0    
+}
