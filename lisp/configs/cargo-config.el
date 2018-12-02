@@ -1,11 +1,16 @@
 ;; Cargo Configuration
 
+(use-package toml-mode
+  :ensure t
+  :mode "\\.toml\\'"
+  :config
+  (message "Toml-mode Configuring..."))
 
 (use-package rust-mode
   :ensure t
   :mode "\\.rs\\'"
   :config
-  (message "Rust-mode Configurating..."))
+  (message "Rust-mode Configuring..."))
 
 
 (use-package cargo
