@@ -38,6 +38,8 @@
   :ensure t
   :after (:any clojure-mode clojurescript-mode clojurec-mode)
   :hook (cider-mode . cider-mode-config)
+  :bind (:map cider-mode-map
+         ("C-c b" . cider-eval-buffer))
   :config
   (message "Loading Cider Configuration...")
   (add-to-list 'cider-test-defining-forms "deftest-db")

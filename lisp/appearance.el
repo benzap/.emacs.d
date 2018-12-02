@@ -9,10 +9,10 @@
     (progn 
       (package-require 'color-theme)
       (color-theme-initialize)
-      (color-theme-tty-dark))
+      (color-theme-dark-info))
   (progn 
-     (package-require 'waher-theme)
-     (load-theme 'waher t t)))
+    (package-require 'waher-theme)
+    (load-theme 'waher t t)))
 
 
 (provide 'appearance)
