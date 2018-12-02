@@ -55,7 +55,7 @@
 (require 'yasnippet-config)
 (require 'visual-basic-config)
 (require 'flycheck-mode-config)
-;;(require 'cargo-config)
+(require 'cargo-config)
 (require 'origami-config)
 (require 'clojure-config)
 (require 'prolog-config)
