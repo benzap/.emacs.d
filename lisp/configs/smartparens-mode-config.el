@@ -1,15 +1,16 @@
-(message "Loading smartparens Configuration")
-(require 'package-utils)
+;; Smartparens Configuration
 
-;;Dependencies
-(package-require 'smartparens)
-(require 'smartparens-config)
+(use-package smartparens
+  :disabled
+  :ensure t
+  :hook ((emacs-lisp-mode
+          clojure-mode
+          lisp-interaction-mode
+          ielm-mode
+          cider-mode) . turn-on-smartparens-mode)
+  :config
+  (message "Loading smartparens Configuration")  
+  (require 'smartparens-config))
 
-
-(add-hook 'emacs-lisp-mode-hook 'turn-on-smartparens-mode)
-(add-hook 'clojure-mode-hook 'turn-on-smartparens-mode)
-(add-hook 'lisp-interaction-mode-hook 'turn-on-smartparens-mode)
-(add-hook 'ielm-mode-hook 'turn-on-smartparens-mode)
-(add-hook 'cider-mode-hook 'turn-on-smartparens-mode)
 
 (provide 'smartparens-mode-config)

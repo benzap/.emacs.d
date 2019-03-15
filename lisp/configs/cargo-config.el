@@ -1,35 +1,41 @@
-(message "Loading cargo Configuration...")
-(require 'package-utils)
+;; Cargo Configuration
 
-;;Dependencies
-(package-require 's)
-(package-require 'rust-mode)
-(package-require 'cargo)
-(package-require 'flycheck-rust)
-(package-require 'racer)
-(package-require 'company)
+(use-package toml-mode
+  :ensure t
+  :mode "\\.toml\\'"
+  :config
+  (message "Toml-mode Configuring..."))
 
-;;Cargo setup functionality
-(add-hook 'rust-mode-hook 'cargo-minor-mode)
+(use-package rust-mode
+  :ensure t
+  :mode "\\.rs\\'"
+  :config
+  (message "Rust-mode Configuring..."))
 
-;;Flycheck-rust functionality
-(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
-;;Racer functionality
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
+(use-package cargo
+  :ensure t
+  :after (rust-mode)
+  :hook (rust-mode . cargo-minor-mode)
+  :config
+  (message "Cargo Configuring..."))
 
-;;Company functionality
-(add-hook 'racer-mode-hook #'company-mode)
 
-(require 'rust-mode)
-(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
-(setq company-tooltip-align-annotations t)
-;; TODO - make this work with all versions
-;; `rustc --print sysroot` + /lib/rustlib/src/rust/src
+(use-package flycheck-rust
+  :ensure t
+  :after (flycheck rust-mode)
+  :hook (flycheck-mode . flycheck-rust-setup)
+  :config
+  (message "Flycheck Configuring..."))
 
-(setq racer-rust-src-path
-      (concat (s-trim (shell-command-to-string "rustc --print sysroot")) "\\lib\\rustlib\\src\\rust\\src"))
+
+(use-package racer
+  :ensure t
+  :after (rust-mode)
+  :hook ((rust-mode . racer-mode)
+         (racer-mode . eldoc-mode))
+  :config
+  (message "Racer Configuring..."))
 
 
 (provide 'cargo-config)

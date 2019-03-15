@@ -1,5 +1,5 @@
 ;;Main initialization of emacs
-(package-initialize)
+;;(package-initialize) ; Handled in 'package-utils
 
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -10,7 +10,7 @@
 ;;(set-face-attribute 'default nil :family "Anonymous Pro" :height 120)
 
 ;;HTPC Bigger Text Size
-(when (string= (getenv "COMPUTERNAME") "DESKTOP-30BPPD4")
+(when (string= (getenv "COMPUTERNAME") "ZAPTECH-HTPC")
   (set-face-attribute 'default nil :family "Inconsolata" :height 140))
 
 ;; Set up load path
@@ -26,8 +26,10 @@
 
 ;; Loading Configurations with Included Packages
 (add-to-list 'load-path (expand-file-name "configs" lisp-dir))
-;;
-;;(require 'plantuml-config)
+
+(require 'use-package-config)
+(require 'solidity-config)
+(require 'plantuml-config)
 (require 'ido-config)
 (require 'escreen-config)
 (require 'org-config)
@@ -39,8 +41,8 @@
 (require 'key-chord-config)
 (require 'diff-hl-config)
 (require 'projectile-config)
-(require 'smartparens-mode-config)
-;;(require 'parinfer-mode-config)
+;;(require 'smartparens-mode-config)
+(require 'parinfer-mode-config)
 (require 'magit-config)
 (require 'monky-config)
 (require 'lua-config)
@@ -55,19 +57,19 @@
 (require 'flycheck-mode-config)
 (require 'cargo-config)
 (require 'origami-config)
-;;(require 'clojure-config)
+(require 'clojure-config)
+(require 'prolog-config)
+(require 'aspell-config)
+(require 'ethlance-config)
+(require 'auto-package-update-config)
 
 ;; Random set of packages being loaded
-(package-require 'ace-jump-mode)
-(package-require 'clojure-mode)
 (package-require 'dash)
-(package-require 'expand-region)
-(package-require 'iy-go-to-char)
-(package-require 'multiple-cursors)
-(package-require 'project-explorer)
-(package-require 'undo-tree)
-(package-require 'god-mode)
-;;(package-require 'cider)
+(package-require 's)
+(use-package undo-tree
+  :ensure t
+  :diminish undo-tree-mode
+  :commands (undo-tree-visualize))
 
 ;; Called after all packages
 (require 'powerline-config)
@@ -116,8 +118,7 @@
  '(erc-system-name "Who wants to know?")
  '(erc-track-minor-mode t)
  '(erc-track-mode t)
- '(erc-user-full-name "Benjamin Zaporzan")
- '(org-agenda-files (quote ("c:/Project.Repositories/iFIDS/Docs/API.org" "~/Projects/iFIDSDroidRemoteClient/readme.org" "~/Projects/iFIDSAdminUtility/readme.org" "c:/Project.Repositories/iFIDSBrowser2.0/readme.org" "c:/Project.Repositories/iFIDS/Docs/Specification/Spec_BaggageRouting.org" "~/Projects/iFIDSAndroid/readme.org" "~/org/apersonal.org" "~/org/diet.org" "~/org/exercise.org" "~/org/journal.org" "~/org/tasks.org" "~/org/finance.org" "~/org/notes.org"))))
+ '(erc-user-full-name "Benjamin Zaporzan"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

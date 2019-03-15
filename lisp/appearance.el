@@ -8,7 +8,7 @@
 	 (not (server-running-p)))
     (load-theme 'tango-dark t t)
   (progn 
-     (package-require 'waher-theme)
-     (load-theme 'waher t t)))
+    (package-require 'waher-theme)
+    (load-theme 'waher t t)))
 
 (provide 'appearance)

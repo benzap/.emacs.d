@@ -1,36 +1,49 @@
-(message "Loading clojure Configuration...")
-(require 'package-utils)
-
-;; Dependencies
-(package-require 'clojure-mode)
-(package-require 'inf-clojure)
-(package-require 'cider)
+;; Clojure Configuration
 
 
-(defun load-inf-clojure ()
-  (interactive)
-  (autoload 'inf-clojure "inf-clojure" "Run an inferior Clojure process" t)
+(use-package inf-clojure
+  :ensure t
+  :commands (inf-clojure-connect)
+  :config
+  (message "inf-clojure Configuring...")
   (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode))
 
 
-(defun cider-mode-config ()
+(use-package clojure-mode
+  :ensure t
+  :mode "\\.clj$"
+  :config
+  (message "Loading Clojure Configuration..."))
+
+
+(use-package clojurescript-mode
+  :mode "\\.cljs$"
+  :config
+  (message "Loading Clojurescript Configuration..."))
+
+
+(use-package clojurec-mode
+  :mode "\\.cljc$"
+  :config
+  (message "Loading ClojureC Configuration..."))
+
+
+(use-package cider
+  :commands (cider-jack-in
+             cider-jack-in-clj
+             cider-jack-in-cljs
+             cider-connect
+             cider-connect-clj
+             cider-connect-cljs)
+  :ensure t
+  :after (:any clojure-mode clojurescript-mode clojurec-mode)
+  :hook (cider-mode . cider-mode-config)
+  :bind (:map cider-mode-map
+         ("C-c b" . cider-eval-buffer))
+  :config
+  (message "Loading Cider Configuration...")
+  (add-to-list 'cider-test-defining-forms "deftest-db")
   (local-set-key (kbd "C-c b") 'cider-eval-buffer))
-
-
-(defun load-cider ()
-  (interactive)
-  (add-hook 'cider-mode-hook 'cider-mode-config)
-  
-  ;; New testing forms defined for hsynapse
-  (add-to-list 'cider-test-defining-forms "deftest-db"))
-
-
-(load-cider)
-
-
-(defun cljs-node-repl ()
-  (interactive)
-  (run-clojure "boot cljs-repl"))
 
 
 (provide 'clojure-config)

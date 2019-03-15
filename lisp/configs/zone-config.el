@@ -1,8 +1,5 @@
 (message "Loading zone Configuration")
-(require 'package-utils)
 
-;;Dependencies
-;;...
 
 ;;zone out the display when it goes idle for a given length of time
 (setq zone-idle-time 300)

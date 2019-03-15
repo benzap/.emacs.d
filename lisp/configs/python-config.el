@@ -1,12 +1,21 @@
-(message "Loading python-mode Configuration...")
-(require 'package-utils)
+;; Python Configuration
 
-;;Dependencies
-(package-require 'python-mode)
-(package-require 'jedi)
 
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+(use-package python-mode
+  :ensure t
+  :mode ("\\.py\\'" . python-mode)
+  :interpreter ("python" . python-mode)
+  :config
+  (message "Loading python-mode Configuration..."))
+
+
+(use-package jedi
+  :ensure t
+  :commands (jedi:setup)
+  :hook (python-mode . jedi:setup)
+  :config
+  (message "Loading Jedi Configuration...")
+  (setq jedi:complete-on-dot t))
 
 
 (provide 'python-config)

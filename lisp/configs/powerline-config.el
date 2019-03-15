@@ -1,9 +1,7 @@
 (message "Loading powerline Configuration...")
-(require 'package-utils)
 
 ;;Dependencies
 (package-require 'powerline)
-(package-require 'diminish)
 
 ;; Initialize main theme
 (powerline-default-theme)

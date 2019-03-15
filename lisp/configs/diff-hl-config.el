@@ -1,11 +1,11 @@
-(message "Loading diff-hl Configuration...")
-(require 'package-utils)
+;; diff-hl Configuring...
 
-;;Dependencies
-(package-require 'diff-hl)
+(use-package diff-hl
+  :ensure t
+  :diminish diff-hl-mode
+  :hook (prog-mode . diff-hl-mode)
+  :config
+  (message "Loading diff-hl Configuration..."))
 
-(defun my-diff-hl-find-file-hook ()
-  (diff-hl-mode))
-(add-hook 'find-file-hook 'my-diff-hl-find-file-hook)
 
 (provide 'diff-hl-config)

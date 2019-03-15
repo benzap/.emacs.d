@@ -1,11 +1,7 @@
-(message "Loading key-chord Configuration...")
-(require 'package-utils)
-
-;;Dependencies
-(package-require 'key-chord)
+;; Keychord Configuration
 
 
-(key-chord-mode t)
+;; Added by use-packages-config
 
 
 (provide 'key-chord-config)
