@@ -10,7 +10,7 @@
 ;;(set-face-attribute 'default nil :family "Anonymous Pro" :height 120)
 
 ;;HTPC Bigger Text Size
-(when (string= (getenv "COMPUTERNAME") "DESKTOP-30BPPD4")
+(when (string= (getenv "COMPUTERNAME") "ZAPTECH-HTPC")
   (set-face-attribute 'default nil :family "Inconsolata" :height 140))
 
 ;; Set up load path
