@@ -1,5 +1,6 @@
 ;;Main initialization of emacs
 ;;(package-initialize) ; Handled in 'package-utils
+(set-language-environment "UTF-8")
 
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -66,10 +67,10 @@
 ;; Random set of packages being loaded
 (package-require 'dash)
 (package-require 's)
-(use-package undo-tree
-  :ensure t
-  :diminish undo-tree-mode
-  :commands (undo-tree-visualize))
+;; (use-package undo-tree
+;;   :ensure t
+;;   :diminish undo-tree-mode
+;;   :commands (undo-tree-visualize))
 
 ;; Called after all packages
 (require 'powerline-config)

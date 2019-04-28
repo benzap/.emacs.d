@@ -1,14 +1,14 @@
 ;;Includes all of the necessary key bindings
 
 ;;for setting tabs
-(global-set-key (kbd "C-; t") 
-    '(lambda () 
-       (interactive)
-       (set-variable 'tab-width 4)))
-(global-set-key (kbd "C-; C-t") 
-    '(lambda () 
-       (interactive)
-       (set-variable 'tab-width 4)))
+;; (global-set-key (kbd "C-; t") 
+;;     '(lambda () 
+;;        (interactive)
+;;        (set-variable 'tab-width 4)))
+;; (global-set-key (kbd "C-; C-t") 
+;;     '(lambda () 
+;;        (interactive)
+;;        (set-variable 'tab-width 4)))
 
 (use-package ace-jump-mode
   :ensure t

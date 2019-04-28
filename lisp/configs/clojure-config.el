@@ -37,7 +37,7 @@
              cider-connect-cljs)
   :ensure t
   :after (:any clojure-mode clojurescript-mode clojurec-mode)
-  :hook (cider-mode . cider-mode-config)
+  ;;:hook (cider-mode . cider-mode-config)
   :bind (:map cider-mode-map
          ("C-c b" . cider-eval-buffer))
   :config
