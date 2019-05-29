@@ -71,27 +71,39 @@
 ;; Random set of packages being loaded
 (package-require 'dash)
 (package-require 's)
-;; (use-package undo-tree
-;;   :ensure t
-;;   :diminish undo-tree-mode
-;;   :commands (undo-tree-visualize))
+(use-package undo-tree
+   :ensure t
+   :diminish undo-tree-mode
+   :commands (undo-tree-visualize))
+
 
 ;; Called after all packages
 (require 'powerline-config)
 
 
-(if (system-type-is-win32)
+(when (system-type-is-win32)
+  (setenv "PATH"
+    (concat
+     ;; Change this with your path to MSYS bin directory
+     "C:\\MinGW\\msys\\1.0\\bin;"
+     (getenv "PATH"))))
+
+;; Append home folder .bin folder
+(when (not (system-type-is-win32))
+  (let ((bin-path (expand-file-name "~/.bin")))
     (setenv "PATH"
-	    (concat
-	     ;; Change this with your path to MSYS bin directory
-	     "C:\\MinGW\\msys\\1.0\\bin;"
-	     (getenv "PATH"))))
+      (concat (getenv "PATH") ":" bin-path))))
+
 
 (require 'default-setup)
 (require 'key-bindings)
 
 ;; Load custom.el file
 (setq custom-file (expand-file-name "custom.el" lisp-dir))
+(load custom-file t)
+
+;; Load more custom files?
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file t)
 
 (custom-set-variables
