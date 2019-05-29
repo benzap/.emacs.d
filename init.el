@@ -14,6 +14,10 @@
 (when (string= (getenv "COMPUTERNAME") "ZAPTECH-HTPC")
   (set-face-attribute 'default nil :family "Inconsolata" :height 140))
 
+;; Macbook Pro with hi-res display
+(when (string= system-name "benzap-work-macbook.local")
+  (set-face-attribute 'default nil :family "Inconsolata" :height 165))
+
 ;; Set up load path
 (setq lisp-dir (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path lisp-dir)
