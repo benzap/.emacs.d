@@ -53,8 +53,7 @@
   :bind (("C-x C-b" . ibuffer)))
 
 ;;used like M-x instead
-;;(global-set-key (kbd "C-; C-;") 'execute-extended-command)
-;;(global-set-key (kbd "C-; ;") 'execute-extended-command)
+(global-set-key (kbd "C-; ;") 'execute-extended-command)
 
 
 ;;can also be used to evaluate sexp

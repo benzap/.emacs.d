@@ -29,6 +29,9 @@
 ;;setup the appearance
 (require 'appearance)
 
+;; spaces everywhere
+(setq-default indent-tabs-mode nil)
+
 ;; Loading Configurations with Included Packages
 (add-to-list 'load-path (expand-file-name "configs" lisp-dir))
 
@@ -67,6 +70,7 @@
 (require 'aspell-config)
 (require 'ethlance-config)
 (require 'auto-package-update-config)
+(require 'javascript-config)
 
 ;; Random set of packages being loaded
 (package-require 'dash)
@@ -92,8 +96,7 @@
 (when (not (system-type-is-win32))
   (let ((bin-path (expand-file-name "~/.bin")))
     (setenv "PATH"
-      (concat (getenv "PATH") ":" bin-path))))
-
+            (concat (getenv "PATH") ":" bin-path))))
 
 (require 'default-setup)
 (require 'key-bindings)
