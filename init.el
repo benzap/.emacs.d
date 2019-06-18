@@ -14,6 +14,10 @@
 (when (string= (getenv "COMPUTERNAME") "ZAPTECH-HTPC")
   (set-face-attribute 'default nil :family "Inconsolata" :height 140))
 
+;; Macbook Pro with hi-res display
+(when (string= system-name "benzap-work-macbook.local")
+  (set-face-attribute 'default nil :family "Inconsolata" :height 165))
+
 ;; Set up load path
 (setq lisp-dir (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path lisp-dir)
@@ -24,6 +28,9 @@
 
 ;;setup the appearance
 (require 'appearance)
+
+;; spaces everywhere
+(setq-default indent-tabs-mode nil)
 
 ;; Loading Configurations with Included Packages
 (add-to-list 'load-path (expand-file-name "configs" lisp-dir))
@@ -63,31 +70,43 @@
 (require 'aspell-config)
 (require 'ethlance-config)
 (require 'auto-package-update-config)
+(require 'javascript-config)
 
 ;; Random set of packages being loaded
 (package-require 'dash)
 (package-require 's)
-;; (use-package undo-tree
-;;   :ensure t
-;;   :diminish undo-tree-mode
-;;   :commands (undo-tree-visualize))
+(use-package undo-tree
+   :ensure t
+   :diminish undo-tree-mode
+   :commands (undo-tree-visualize))
+
 
 ;; Called after all packages
 (require 'powerline-config)
 
 
-(if (system-type-is-win32)
+(when (system-type-is-win32)
+  (setenv "PATH"
+    (concat
+     ;; Change this with your path to MSYS bin directory
+     "C:\\MinGW\\msys\\1.0\\bin;"
+     (getenv "PATH"))))
+
+;; Append home folder .bin folder
+(when (not (system-type-is-win32))
+  (let ((bin-path (expand-file-name "~/.bin")))
     (setenv "PATH"
-	    (concat
-	     ;; Change this with your path to MSYS bin directory
-	     "C:\\MinGW\\msys\\1.0\\bin;"
-	     (getenv "PATH"))))
+            (concat (getenv "PATH") ":" bin-path))))
 
 (require 'default-setup)
 (require 'key-bindings)
 
 ;; Load custom.el file
 (setq custom-file (expand-file-name "custom.el" lisp-dir))
+(load custom-file t)
+
+;; Load more custom files?
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file t)
 
 (custom-set-variables
