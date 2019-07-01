@@ -67,6 +67,7 @@
 (require 'aspell-config)
 (require 'ethlance-config)
 (require 'auto-package-update-config)
+(require 'less-config)
 
 ;; Random set of packages being loaded
 (package-require 'dash)
