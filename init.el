@@ -95,6 +95,7 @@
 
   ;; Append home folder .bin folder
   (let ((bin-path (expand-file-name "~/.bin")))
+    (add-to-list 'exec-path bin-path)
     (setenv "PATH"
             (concat (getenv "PATH") ":" bin-path))))
 
