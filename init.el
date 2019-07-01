@@ -87,18 +87,17 @@
 (require 'powerline-config)
 
 
-(when (system-type-is-win32)
-  (setenv "PATH"
-    (concat
-     ;; Change this with your path to MSYS bin directory
-     "C:\\MinGW\\msys\\1.0\\bin;"
-     (getenv "PATH"))))
+(if (system-type-is-win32)
+    ;; On Windows, append MSYS utilities
+    (let ((bin-path "C:\\MinGW\\msys\\1.0\\bin)))"))
+      (setenv "PATH"
+              (concat (getenv "PATH") ";" bin-path)))
 
-;; Append home folder .bin folder
-(when (not (system-type-is-win32))
+  ;; Append home folder .bin folder
   (let ((bin-path (expand-file-name "~/.bin")))
     (setenv "PATH"
             (concat (getenv "PATH") ":" bin-path))))
+
 
 (require 'default-setup)
 (require 'key-bindings)
