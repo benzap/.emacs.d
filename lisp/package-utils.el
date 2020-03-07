@@ -1,11 +1,13 @@
 ;;Includes functions for performing package installs when necessary
 
+(setq package-check-signature nil)
+
 (setq package-archives
-      '(("melpa" . "http://melpa.milkbox.net/packages/") 
-        ("gnu" . "http://elpa.gnu.org/packages/")
+      '(("melpa" . "https://melpa.milkbox.net/packages/") 
+        ("gnu" . "https://elpa.gnu.org/packages/")
         ("marmalade" . "https://marmalade-repo.org/packages/")))
         ;;("melpa-stable" . "https://stable.melpa.org/packages/")
-  
+
 
 (package-initialize)
 
