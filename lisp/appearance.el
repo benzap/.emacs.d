@@ -3,7 +3,7 @@
 (require 'utils)
 (require 'server)
 
-;;color theme
+;;color theme for terminal/server and for gui
 (if (and (not (window-system))
 	 (not (server-running-p)))
     (load-theme 'tango-dark t t)
