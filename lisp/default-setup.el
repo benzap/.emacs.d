@@ -15,8 +15,6 @@
 ;;change tab widths
 (setq tab-width 4)
 
-;;(global-undo-tree-mode)
-
 ;;remove annoying backups, just use git
 (setq backup-inhibited t)
 

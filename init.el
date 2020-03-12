@@ -72,6 +72,7 @@
 (require 'auto-package-update-config)
 (require 'less-config)
 (require 'javascript-config)
+(require 'undo-tree-config)
 
 
 ;; Random set of packages being loaded
