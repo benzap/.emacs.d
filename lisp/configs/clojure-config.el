@@ -1,12 +1,20 @@
 ;; Clojure Configuration
 
-
 (use-package inf-clojure
   :ensure t
   :commands (inf-clojure-connect)
   :config
   (message "inf-clojure Configuring...")
   (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode))
+
+
+(use-package clj-refactor
+ :ensure t
+ :after (:any clojure-mode clojurescript-mode clojurec-mode)
+ :hook
+ (clojure-mode . clj-refactor-mode)
+ :config
+ (cljr-add-keybindings-with-prefix "C-c C-r C-r"))
 
 
 (use-package clojure-mode
