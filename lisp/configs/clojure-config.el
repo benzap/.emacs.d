@@ -19,7 +19,7 @@
 
 (use-package clojure-mode
   :ensure t
-  :mode "\\.clj$"
+  :mode "\\.clj|\\.bb$"
   :config
   (message "Loading Clojure Configuration..."))
 

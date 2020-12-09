@@ -73,6 +73,7 @@
 (require 'less-config)
 (require 'javascript-config)
 (require 'undo-tree-config)
+(require 'tramp-config)
 
 
 ;; Random set of packages being loaded
