@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: config test environment
-# key: testenv
-# type: snippet
-# --
-#[cfg(test)]
-mod tests {
-    $0
-}
