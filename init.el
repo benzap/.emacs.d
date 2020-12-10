@@ -1,6 +1,7 @@
 ;;
 ;; Benzap's Emacs Configuration
 ;;
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; Initial Package Manager Setup
 (require 'package)
@@ -27,11 +28,8 @@
   (auto-package-update-maybe))
 
 
-;; Initialize Barebones Settings
-(menu-bar-mode 0)
-(toggle-scroll-bar 0)
-(tool-bar-mode 0)
-(blink-cursor-mode 0)
+;; Defaults for every editor
+(require 'init-defaults)
 
 ;; Eldoc Setup
 (use-package eldoc-mode
@@ -74,3 +72,20 @@
   :init
   (define-key company-mode-map (kbd "C-;") 'helm-company)
   (define-key company-active-map (kbd "C-;") 'helm-company))
+
+;;
+;; Appearance
+;;
+
+;; Theme
+(use-package monokai-theme
+  :ensure t
+  :init
+  (if (eq system-type 'windows-nt)
+      (add-hook 'window-setup-hook '(lambda () (load-theme 'monokai t)))
+    (add-hook 'after-init-hook '(lambda () (load-theme 'monokai t))))
+  :config (load-theme 'monokai t))
+
+;; Font
+(add-to-list 'default-frame-alist
+             '(font . "Inconsolata-14"))
