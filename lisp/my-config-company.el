@@ -1,6 +1,8 @@
+(require 'use-package)
+
 (use-package company
   :ensure t
-  :defer t
+  :diminish company-mode
   :init
   (setq company-backends '((company-files
 			    company-keywords

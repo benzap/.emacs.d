@@ -3,17 +3,24 @@
 ;;
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+(setq init-debug? t)
+
 ;; Initial Package Manager Setup
 (package-initialize)
 (require 'init-package)
 
-
 ;; Defaults for every editor
 (require 'init-defaults)
 
+;;
+;; Package Configuration (+ key bindings)
+;;
+
+(use-package diminish :ensure t)
+
 ;; Eldoc Setup
 (use-package eldoc-mode
-  :diminish ElDoc
+  :diminish eldoc-mode-major-mode
   :hook
   (emacs-lisp-mode
    lisp-interaction-mode
@@ -22,7 +29,7 @@
 ;; Helm & Company Setup (Auto-Complete Libraries)
 (use-package helm
   :ensure t
-  :diminish Helm
+  :diminish helm-mode
   :init
   (require 'helm-config)
   (helm-mode 1)
@@ -45,11 +52,17 @@
 ;;
 ;; Appearance
 ;;
-(require 'init-appearance)
 
+(require 'init-appearance) ;; Include: theme-motokai
+
+;;
+;; Global Keybindings
+;;
 
 
 ;;
 ;; DONE
 ;;
 (message "Welcome!")
+(when init-debug?
+  (find-file "~/.emacs.d/init.el"))
