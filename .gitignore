@@ -8,3 +8,5 @@ elpa/
 ido.last
 .last-package-update-day
 ac-comphist.dat
+eshell/
+url/
