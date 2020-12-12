@@ -18,6 +18,10 @@
 (when (string= system-name "benzap-work-macbook.local")
   (set-face-attribute 'default nil :family "Inconsolata" :height 165))
 
+;; Zaptech Server 1, with X11 Forwarding
+(when (string= system-name "ZAPTECH-SERVER-1")
+  (set-face-attribute 'default nil :family "Inconsolata" :height 165))
+
 ;; Set up load path
 (setq lisp-dir (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path lisp-dir)
