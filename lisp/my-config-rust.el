@@ -1,42 +1,34 @@
-;; Rust Configuration
+;;; my-config-rust.el --- Rust Configuration
+;;; Commentary:
+;;; Author: Benjamin Zaporzan
+;;; Code:
 
 (use-package toml-mode
   :ensure t
-  :mode "\\.toml\\'"
-  :config
-  (message "Toml-mode Configuring..."))
-
+  :mode "\\.toml\\'")
 
 (use-package rust-mode
   :ensure t
+  :after (company)
   :mode "\\.rs\\'"
-  :config
-  (message "Rust-mode Configuring..."))
-
+  :bind (("TAB" . company-indent-or-complete-common)))
 
 (use-package cargo
   :ensure t
   :after (rust-mode)
-  :hook (rust-mode . cargo-minor-mode)
-  :config
-  (message "Cargo Configuring..."))
-
+  :hook (rust-mode . cargo-minor-mode))
 
 (use-package flycheck-rust
   :ensure t
-  :after (flycheck rust-mode)
-  :hook (flycheck-mode . flycheck-rust-setup)
-  :config
-  (message "Flycheck Configuring..."))
-
+  :after (flycheck)
+  :hook (flycheck-mode . flycheck-rust-setup))
 
 (use-package racer
   :ensure t
   :after (rust-mode)
   :hook ((rust-mode . racer-mode)
-         (racer-mode . eldoc-mode))
-  :config
-  (message "Racer Configuring..."))
-
+         (racer-mode . eldoc-mode)
+         (racer-mode . company-mode)))
 
 (provide 'my-config-rust)
+;;; my-config-rust.el ends here

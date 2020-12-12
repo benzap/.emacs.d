@@ -1,4 +1,8 @@
-;; Absolute Defaults for every emacs text editor.
+;;; init-defaults.el --- My Editor Defaults
+;;; Commentary:
+;;; Author: Benjamin Zaporzan
+;;; Code:
+
 (set-language-environment "UTF-8")
 (menu-bar-mode 0)                       ; Remove Menu Bar
 (toggle-scroll-bar 0)                   ; Remove Scroll Bar
@@ -32,3 +36,4 @@
 
 
 (provide 'init-defaults)
+;;; init-defaults.el ends here

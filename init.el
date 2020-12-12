@@ -1,6 +1,7 @@
-;;
-;; Benzap's Emacs Configuration
-;;
+;;; init.el --- Emacs Configuration
+;;; Commentary:
+;;; Author: Benjamin Zaporzan
+;;; Code:
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (setq init-debug? t)
 
@@ -17,10 +18,19 @@
 (use-package diminish :ensure t)
 (use-package delight :ensure t)
 (use-package dash :ensure t)
+(use-package helm-swoop :ensure t)
+(use-package helm-flx :ensure t)
+(use-package smex :ensure t)
+(use-package helm-smex :ensure t)
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+
 (use-package key-chord
   :ensure t
   :init (key-chord-mode 1))
 (use-package subword
+  :diminish subword-mode
   :hook ((text-mode prog-mode) . subword-mode))
 
 ;; Helm & Company Setup (Auto-Complete Libraries)
@@ -37,11 +47,6 @@
   (define-key global-map [remap dabbrev-expand] 'helm-dabbrev)
   (define-key global-map [remap execute-extended-command] 'helm-smex)
   (define-key global-map [remap apropos-command] 'helm-apropos))
-
-(use-package helm-swoop :ensure t)
-(use-package helm-flx :ensure t)
-(use-package smex :ensure t)
-(use-package helm-smex :ensure t)
 
 (require 'my-config-company) ;; Include: company
 
@@ -125,10 +130,6 @@
   (setq indent-tabs-mode nil)
   (message "Loading less-css-mode Configuration..."))
 
-(use-package flycheck
-  :ensure t
-  :after js2-mode)
-
 ;; Clojure & Cider Development
 (use-package clojure-mode
   :ensure t
@@ -190,25 +191,3 @@
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; Custom Variables ;;
 ;;;;;;;;;;;;;;;;;;;;;;
-
-
-
- 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(chords powerline js2-mode web-mode undo-tree use-package toml-mode racer parinfer monokai-theme helm-swoop helm-smex helm-fuzzier helm-flx helm-company flycheck-rust diminish delight cargo auto-package-update)))
-(custom-set-faces)
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- 
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- 
