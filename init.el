@@ -3,7 +3,6 @@
 ;;; Author: Benjamin Zaporzan
 ;;; Code:
 (add-to-list 'load-path "~/.emacs.d/lisp/")
-(setq init-debug? t)
 
 ;; Initial Package Manager Setup
 (package-initialize)
@@ -16,7 +15,6 @@
 ;; Barebones Package Configuration (+ key bindings)
 ;;
 (use-package diminish :ensure t)
-(use-package delight :ensure t)
 (use-package dash :ensure t)
 (use-package helm-swoop :ensure t)
 (use-package helm-flx :ensure t)
@@ -24,7 +22,7 @@
 (use-package helm-smex :ensure t)
 (use-package flycheck
   :ensure t
-  :init (global-flycheck-mode))
+  :hook (prog-mode . flycheck-mode))
 
 (use-package key-chord
   :ensure t
@@ -61,31 +59,20 @@
 ;; Lisp/Clojure/Scheme Parinfer Mode Configuration
 ;;
 
-(use-package parinfer
-  :ensure t
-  :bind
-  (("C-x p" . parinfer-toggle-mode))
-  :init
-  (setq parinfer-extensions
-        '(defaults       ; should be included.
-           pretty-parens  ; different paren styles for different modes.
-           ;; evil        ; If you use Evil.
-           ;; paredit     ; Introduce some paredit commands.
-           ;; lispy
-           smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
-           smart-yank))   ; Yank behavior depend on mode.
+(use-package lispy
+  :ensure t  
   :hook ((clojure-mode
           emacs-lisp-mode
           common-lisp-mode
           scheme-mode
-          lisp-mode) . parinfer-mode)
+          lisp-mode) . lispy-mode)
   :config
-  (message "Loading parinfer Configuration"))
+  (message "Loading Lispy Configuration"))
 
 
 ;; Rust Support
 (require 'my-config-rust)               ; Include: cargo-mode,
-          ; rust-mode, toml-mode, racer
+					; rust-mode, toml-mode, racer
 
 ;; Undo Tree
 (use-package undo-tree
@@ -181,11 +168,7 @@
 ;;
 ;; DONE
 ;;
-
-
-(message "Welcome!")
-(when init-debug?
-  (find-file "~/.emacs.d/init.el"))
+;;(find-file "~/.emacs.d/init.el")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;
