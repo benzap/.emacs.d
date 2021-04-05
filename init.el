@@ -50,24 +50,19 @@
 
 (use-package helm-company
   :ensure t
-  :after (helm company)
-  :init
-  (define-key company-mode-map (kbd "C-;") 'helm-company)
-  (define-key company-active-map (kbd "C-;") 'helm-company))
+  :after (helm company))
 
 ;;
 ;; Lisp/Clojure/Scheme Parinfer Mode Configuration
 ;;
 
 (use-package lispy
-  :ensure t  
-  :hook ((clojure-mode
-          emacs-lisp-mode
-          common-lisp-mode
-          scheme-mode
-          lisp-mode) . lispy-mode)
+  :ensure t
+  :hook ((clojure-mode emacs-lisp-mode common-lisp-mode scheme-mode lisp-mode) . lispy-mode)
   :config
-  (message "Loading Lispy Configuration"))
+  (message "Loading Lispy Configuration")
+  :bind (:map lispy-mode-map
+	      ("C-;" . lispy-mark-symbol)))
 
 
 ;; Rust Support
