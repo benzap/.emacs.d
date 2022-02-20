@@ -11,8 +11,12 @@
   :ensure t
   :after (company)
   :mode "\\.rs\\'"
-  :bind (("TAB" . company-indent-or-complete-common)))
-
+  :bind (("TAB" . company-indent-or-complete-common)
+         ("<f5>" . recompile)
+         ("<f6>" . compile))
+  :config
+  (setq compile-command "cargo build"))
+ 
 (use-package cargo
   :ensure t
   :after (rust-mode)

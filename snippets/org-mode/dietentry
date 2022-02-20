@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Diet Entry
+# key: de
+# --
+| # | ${1:name}  | ${2:1} | $3 | 0 | 0 |

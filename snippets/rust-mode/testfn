@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: test function
+# key: testfn
+# --
+
+#[test]
+fn test_$1() {
+    $0
+}

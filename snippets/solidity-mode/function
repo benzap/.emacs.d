@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: function
+# key: f
+# --
+/// @dev FIXME
+/// @param FIXME
+/// @return FIXME
+function ${1:name}(${2:uint foo})
+    ${3:public} {
+    $0
+}
