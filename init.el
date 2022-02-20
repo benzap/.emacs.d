@@ -5,6 +5,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; Initial Package Manager Setup
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (package-initialize)
 (require 'init-package)
 
@@ -172,7 +173,7 @@
 ;;
 ;; DONE
 ;;
-;;(find-file "~/.emacs.d/init.el")
+;; (find-file "~/.emacs.d/init.el")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;
