@@ -50,10 +50,14 @@
 (require 'my-config-company) ;; Include: company
 
 ;; Configuring Recentf (Track and View Recently Seen Files)
-(recentf-mode 1)
-(setq recentf-max-menu-items 25)
-(setq recentf-max-saved-items 25)
-(global-set-key (kbd "C-x C-r") 'recentf-open-files)
+(use-package recentf
+  :no-require t
+  :after (helm)
+  :config
+  (recentf-mode 1)
+  (setq recentf-max-menu-items 25)
+  (setq recentf-max-saved-items 25)
+  (global-set-key (kbd "C-x C-r") 'helm-recentf))
 
 (use-package helm-company
   :ensure t
