@@ -15,12 +15,12 @@
 ;;
 ;; Barebones Package Configuration (+ key bindings)
 ;;
-(use-package diminish :ensure t)
 (use-package dash :ensure t)
-(use-package helm-swoop :ensure t)
-(use-package helm-flx :ensure t)
-(use-package smex :ensure t)
-(use-package helm-smex :ensure t)
+(use-package diminish :ensure t :after helm)
+(use-package helm-swoop :ensure t :after helm)
+(use-package helm-flx :ensure t :after helm)
+(use-package smex :ensure t :after helm)
+(use-package helm-smex :ensure t :after helm)
 (use-package flycheck
   :ensure t
   :hook (prog-mode . flycheck-mode))
@@ -28,9 +28,17 @@
 (use-package key-chord
   :ensure t
   :init (key-chord-mode 1))
+
 (use-package subword
   :diminish subword-mode
   :hook ((text-mode prog-mode) . subword-mode))
+
+(use-package eldoc
+  :no-require t
+  :init
+  (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
+  (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
+  (add-hook 'ielm-mode-hook 'eldoc-mode))
 
 ;; Helm & Company Setup (Auto-Complete Libraries)
 (use-package helm
@@ -48,6 +56,20 @@
   (define-key global-map [remap apropos-command] 'helm-apropos))
 
 (require 'my-config-company) ;; Include: company
+
+(use-package org
+  :no-require t
+  :mode "\\.org$"
+  :config
+  (font-lock-add-keywords
+   'org-mode
+   '(("^ +\\([-*]\\) "
+      (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•")))))))
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 ;; Configuring Recentf (Track and View Recently Seen Files)
 (use-package recentf
@@ -68,7 +90,7 @@
 (use-package parinfer-rust-mode
   :ensure t
   :bind
-  (("C-p" . parinfer-switch-mode))
+  (("C-p" . parinfer-rust-switch-mode))
   :hook (clojure-mode emacs-lisp-mode common-lisp-mode scheme-mode lisp-mode)
   :init (setq parinfer-rust-auto-download t))
 
@@ -189,7 +211,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(parinfer-rust-mode yasnippet web-mode use-package undo-tree toml-mode racer powerline monokai-theme lispy key-chord js2-mode helm-swoop helm-smex helm-flx helm-company flycheck-rust diminish delight cider cargo auto-package-update)))
+   '(org-mode org-bullets parinfer-rust-mode yasnippet web-mode use-package undo-tree toml-mode racer powerline monokai-theme lispy key-chord js2-mode helm-swoop helm-smex helm-flx helm-company flycheck-rust diminish delight cider cargo auto-package-update)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

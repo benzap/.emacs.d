@@ -36,6 +36,16 @@
 ;; Enable Narrow to Region
 (put 'narrow-to-region 'disabled nil)
 
+;; Set our default font
+(defvar user-default-font
+  (cond
+   ((x-list-fonts "Inconsolata")     '(:font "Inconsolata"))
+   ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
+   ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
+   ((x-list-fonts "Verdana")         '(:font "Verdana"))
+   ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
+   (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
+
 
 (provide 'init-defaults)
 ;;; init-defaults.el ends here

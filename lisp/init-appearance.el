@@ -12,11 +12,6 @@
     (add-hook 'after-init-hook '(lambda () (load-theme 'monokai t))))
   :config (load-theme 'monokai t))
 
-;; Font
-(add-to-list 'default-frame-alist
-             '(font . "Inconsolata-14"))
-
-
 (use-package powerline
   :ensure t
   :init (powerline-default-theme)
@@ -25,17 +20,18 @@
             :background "olive drab"
             :box nil))
 
-;; HTPC Bigger Text Size
-(when (string= (getenv "COMPUTERNAME") "ZAPTECH-HTPC")
-  (set-face-attribute 'default nil :family "Inconsolata" :height 140))
+(defun is-computer-name
+    (name)
+  "Return non-nil if NAME is equal to the COMPUTERNAME environment variable."
+  (string= (getenv "COMPUTERNAME") name))
 
-;; Macbook Pro with hi-res display
-(when (string= (system-name) "benzap-work-macbook.local")
-  (set-face-attribute 'default nil :family "Inconsolata" :height 165))
-
-;; Zaptech Server 1, with X11 Forwarding
-(when (string= (system-name) "ZAPTECH-SERVER-1")
-  (set-face-attribute 'default nil :family "Inconsolata" :height 165))
+(set-face-attribute 'default nil
+                    :family "Source Sans Pro"
+                    :height (cond
+                             ((is-computer-name "ZAPTECH-HTPC") 160)
+                             ((is-computer-name "benzap-work-macbook-local") 165)
+                             ((is-computer-name "ZAPTECH-SERVER-1") 165)
+                             (t 150)))
 
 
 (provide 'init-appearance)
