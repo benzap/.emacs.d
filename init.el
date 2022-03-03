@@ -57,15 +57,55 @@
 
 (require 'my-config-company) ;; Include: company
 
-(use-package org
-  :no-require t
-  :mode "\\.org$"
-  :config
+;;
+;; Org-mode Configuration
+;;
+
+;; Bullets use real bullet points
+(setq org-hide-emphasis-markers t)
   (font-lock-add-keywords
    'org-mode
    '(("^ +\\([-*]\\) "
-      (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•")))))))
+      (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
+;; Apply different header styles
+(let* ((variable-tuple     `(:font ,user-default-sans-font))
+       (base-font-color    "#fdfdfd")
+       (headline          `(:inherit default :weight bold :foreground ,base-font-color)))
+
+  (custom-theme-set-faces
+   'user
+   `(org-level-8 ((t (,@headline ,@variable-tuple))))
+   `(org-level-7 ((t (,@headline ,@variable-tuple))))
+   `(org-level-6 ((t (,@headline ,@variable-tuple))))
+   `(org-level-5 ((t (,@headline ,@variable-tuple))))
+   `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
+   `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.2))))
+   `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.3))))
+   `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.4))))
+   `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline nil))))))
+
+(custom-theme-set-faces
+ 'user
+ '(org-block ((t (:inherit fixed-pitch))))
+ '(org-code ((t (:inherit (shadow fixed-pitch)))))
+ '(org-document-info ((t (:foreground "dark orange"))))
+ '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+ '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
+ '(org-link ((t (:foreground "royal blue" :underline t))))
+ '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+ '(org-property-value ((t (:inherit fixed-pitch))) t)
+ '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+ '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
+ '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
+ '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
+
+;; Make org-mode use variable width font
+;;(add-hook 'org-mode-hook 'variable-pitch-mode)
+;;(add-hook 'org-mode-hook 'visual-line-mode)
+
+
+;; Better looking org-mode bullets header bullet points.
 (use-package org-bullets
   :ensure t
   :config

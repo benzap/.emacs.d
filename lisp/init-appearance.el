@@ -26,7 +26,7 @@
   (string= (getenv "COMPUTERNAME") name))
 
 (set-face-attribute 'default nil
-                    :family "Source Sans Pro"
+                    :family user-default-mono-font
                     :height (cond
                              ((is-computer-name "ZAPTECH-HTPC") 160)
                              ((is-computer-name "benzap-work-macbook-local") 165)
