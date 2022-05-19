@@ -12,3 +12,6 @@ eshell/
 url/
 smex-items
 recentf
+*~undo-tree~
+*.so
+eln-cache/

@@ -38,23 +38,26 @@
 
 ;; Set our default font
 (defvar user-default-sans-font
-  (cond
-   ((x-list-fonts "Source Sans Pro") "Source Sans Pro")
-   ((x-list-fonts "Lucida Grande") "Lucida Grande")
-   ((x-list-fonts "Verdana") "Verdana")
-   ((x-family-fonts "Sans Serif") "Sans Serif")
-   (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
+  (when (display-graphic-p)
+    (cond
+     ((x-list-fonts "Source Sans Pro") "Source Sans Pro")
+     ((x-list-fonts "Lucida Grande") "Lucida Grande")
+     ((x-list-fonts "Verdana") "Verdana")
+     ((x-family-fonts "Sans Serif") "Sans Serif")
+     (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro.")))))
 
 (defvar user-default-mono-font
-  (cond
-   ((x-list-fonts "Inconsolata") "Inconsolata")
-   ((x-family-fonts "Monospace") "Monospace")
-   (nil (warn "Cannot find a Inconsolata Font.  Install Inconsolata."))))
+  (when (display-graphic-p)
+    (cond
+     ((x-list-fonts "Inconsolata") "Inconsolata")
+     ((x-family-fonts "Monospace") "Monospace")
+     (nil (warn "Cannot find a Inconsolata Font.  Install Inconsolata.")))))
 
-(custom-theme-set-faces
- 'user
- '(variable-pitch ((t (:family user-default-sans-font :height 180 :weight thin))))
- '(fixed-pitch ((t ( :family user-default-mono-font :height 160)))))
+(when (display-graphic-p)
+  (custom-theme-set-faces
+   'user
+   '(variable-pitch ((t (:family user-default-sans-font :height 180 :weight thin))))
+   '(fixed-pitch ((t ( :family user-default-mono-font :height 160))))))
 
 
 (provide 'init-defaults)
