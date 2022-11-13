@@ -13,3 +13,7 @@ url/
 smex-items
 recentf
 undo/
+*~undo-tree~
+*.so
+eln-cache/
+network-security.data

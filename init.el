@@ -245,3 +245,5 @@
 ;; DONE
 ;;
 ;; (find-file "~/.emacs.d/init.el")
+(provide 'init)
+;;; init.el ends here
