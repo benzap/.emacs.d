@@ -17,10 +17,32 @@
 ;;
 (use-package dash :ensure t)
 (use-package diminish :ensure t :after helm)
-(use-package helm-swoop :ensure t :after helm)
-(use-package helm-flx :ensure t :after helm)
-(use-package smex :ensure t :after helm)
-(use-package helm-smex :ensure t :after helm)
+(use-package counsel ;; Installs ivy and swiper
+  :ensure t
+  :init
+  (ivy-mode)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  ;; enable this if you want `swiper' to use it
+  ;; (setq search-default-mode #'char-fold-to-regexp)
+  (global-set-key "\C-s" 'swiper)
+  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+  (global-set-key (kbd "<f6>") 'ivy-resume)
+  (global-set-key (kbd "M-x") 'counsel-M-x)
+  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+  (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+  (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+  (global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
+  (global-set-key (kbd "<f1> l") 'counsel-find-library)
+  (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+  (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+  (global-set-key (kbd "C-c g") 'counsel-git)
+  (global-set-key (kbd "C-c j") 'counsel-git-grep)
+  (global-set-key (kbd "C-c k") 'counsel-ag)
+  (global-set-key (kbd "C-x l") 'counsel-locate)
+  (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+  (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
+
 (use-package flycheck
   :ensure t
   :hook (prog-mode . flycheck-mode))
@@ -39,21 +61,6 @@
   (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
   (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
   (add-hook 'ielm-mode-hook 'eldoc-mode))
-
-;; Helm & Company Setup (Auto-Complete Libraries)
-(use-package helm
-  :ensure t
-  :diminish helm-mode
-  :config
-  (require 'helm-config)
-  (helm-mode 1)
-  (helm-flx-mode 1)
-  (define-key global-map [remap find-file] 'helm-find-files)
-  (define-key global-map [remap occur] 'helm-occur)
-  (define-key global-map [remap list-buffers] 'helm-buffers-list)
-  (define-key global-map [remap dabbrev-expand] 'helm-dabbrev)
-  (define-key global-map [remap execute-extended-command] 'helm-smex)
-  (define-key global-map [remap apropos-command] 'helm-apropos))
 
 (require 'my-config-company) ;; Include: company
 
@@ -121,10 +128,6 @@
   (setq recentf-max-saved-items 25)
   (global-set-key (kbd "C-x C-r") 'helm-recentf))
 
-(use-package helm-company
-  :ensure t
-  :after (helm company))
-
 
 ;; Not specifically meant for rust, parinfer written in rust
 (use-package parinfer-rust-mode
@@ -143,6 +146,8 @@
 (use-package undo-tree
   :ensure t
   :diminish undo-tree-mode
+  :init
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
   :config
   (global-undo-tree-mode))
 
@@ -240,21 +245,3 @@
 ;; DONE
 ;;
 ;; (find-file "~/.emacs.d/init.el")
-
-
-;;;;;;;;;;;;;;;;;;;;;;
-;; Custom Variables ;;
-;;;;;;;;;;;;;;;;;;;;;;
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(org-mode org-bullets parinfer-rust-mode yasnippet web-mode use-package undo-tree toml-mode racer powerline monokai-theme lispy key-chord js2-mode helm-swoop helm-smex helm-flx helm-company flycheck-rust diminish delight cider cargo auto-package-update)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
