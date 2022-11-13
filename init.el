@@ -121,12 +121,11 @@
 ;; Configuring Recentf (Track and View Recently Seen Files)
 (use-package recentf
   :no-require t
-  :after (helm)
   :config
   (recentf-mode 1)
   (setq recentf-max-menu-items 25)
   (setq recentf-max-saved-items 25)
-  (global-set-key (kbd "C-x C-r") 'helm-recentf))
+  (global-set-key (kbd "C-x C-r") 'recentf-open-files))
 
 
 ;; Not specifically meant for rust, parinfer written in rust
@@ -227,9 +226,10 @@
 ;;
 ;; Global Keybindings
 ;;
-(global-set-key (kbd "M-X") #'helm-smex-major-mode-commands)
+
 (key-chord-define-global "<M" 'backward-list)
 (key-chord-define-global ">?" 'forward-list)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Mac specific bindings
 ;; rebind the modifier key to mimic general keyboards
