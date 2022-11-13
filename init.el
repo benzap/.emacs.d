@@ -247,13 +247,38 @@
 
 ;;(all-the-icons-install-fonts) ; Make sure the fonts are installed.
 
+;; Adding Projectile, Project Management
+(use-package projectile
+  :init (projectile-mode 1)
+  :ensure t
+  :config
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
+(declare neotree-project-dir)
 ;; Treeview
 (use-package neotree
   :ensure t
+  :after (projectile)
   :config
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-  (global-set-key (kbd "<f8>") 'neotree-toggle))
+  (global-set-key (kbd "<f8>") 'neotree-toggle)
+  (setq projectile-switch-project-action 'neotree-projectile-action)
+  (global-set-key (kbd "C-x p") 'neotree-project-dir))
+
+
+(defun neotree-project-dir ()
+  "Open NeoTree using the git root."
+  (interactive)
+  (let ((project-dir (projectile-project-root))
+        (file-name (buffer-file-name)))
+    (neotree-toggle)
+    (if project-dir
+        (if (neo-global--window-exists-p)
+            (progn
+              (neotree-dir project-dir)
+              (neotree-find file-name)))
+      (message "Could not find git project root."))))
+
 
 ;;
 ;; DONE
@@ -267,7 +292,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(neotree neo-tree all-the-icons true zones yasnippet web-mode use-package undo-tree toml-mode racer powerline parinfer-rust-mode org-bullets monokai-theme lispy key-chord js2-mode helm-swoop helm-smex helm-flx helm-company flycheck-rust diminish delight counsel cider cargo auto-package-update a)))
+   '(projectile neotree neo-tree all-the-icons true zones yasnippet web-mode use-package undo-tree toml-mode racer powerline parinfer-rust-mode org-bullets monokai-theme lispy key-chord js2-mode helm-swoop helm-smex helm-flx helm-company flycheck-rust diminish delight counsel cider cargo auto-package-update a)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
