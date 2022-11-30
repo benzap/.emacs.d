@@ -132,9 +132,10 @@
 (use-package parinfer-rust-mode
   :ensure t
   :bind
-  (("C-p" . parinfer-rust-switch-mode))
+  (("C-p" . parinfer-rust-toggle-paren-mode))
   :hook (clojure-mode emacs-lisp-mode common-lisp-mode scheme-mode lisp-mode)
-  :init (setq parinfer-rust-auto-download t))
+  :init (setq parinfer-rust-auto-download t)
+        (setq parinfer-rust-preferred-mode "indent"))
 
 
 ;; Rust Support
