@@ -18,7 +18,8 @@
       initial-scratch-message nil       ; Remove initial *scratch* buffer text
       tab-width 4                       ; Set Default Tab Width to 4
       backup-inhibited t                ; Get rid of file backups (use git)
-      auto-save-default nil)            ; Get rid of auto-save (use git)
+      auto-save-default nil             ; Get rid of auto-save (use git)
+      ring-bell-function 'ignore)       ; Remove the Audible Bell.
 
 (defalias 'tab-width 'default-tab-width)
 
