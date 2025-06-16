@@ -130,7 +130,7 @@
 
 ;; Not specifically meant for rust, parinfer written in rust
 (use-package parinfer-rust-mode
-  :ensure t
+  :ensure f
   :bind
   (("C-p" . parinfer-rust-toggle-paren-mode))
   :hook (clojure-mode emacs-lisp-mode common-lisp-mode scheme-mode lisp-mode)
@@ -186,6 +186,12 @@
   (setq default-tab-width 2)
   (setq indent-tabs-mode nil)
   (message "Loading less-css-mode Configuration..."))
+
+;; Typescript Development
+(use-package typescript-mode
+  :ensure t
+  :mode ("\\.ts$"
+         "\\.vts$")) ; valve suffix
 
 ;; Clojure & Cider Development
 (use-package clojure-mode
@@ -293,7 +299,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(svg-clock lua-mode projectile neotree neo-tree all-the-icons true zones yasnippet web-mode use-package undo-tree toml-mode racer powerline parinfer-rust-mode org-bullets monokai-theme lispy key-chord js2-mode helm-swoop helm-smex helm-flx helm-company flycheck-rust diminish delight counsel cider cargo auto-package-update a)))
+   '(typescript-mode powershell svg-clock lua-mode projectile neotree neo-tree all-the-icons true zones yasnippet web-mode use-package undo-tree toml-mode racer powerline parinfer-rust-mode org-bullets monokai-theme lispy key-chord js2-mode helm-swoop helm-smex helm-flx helm-company flycheck-rust diminish delight counsel cider cargo auto-package-update a)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
