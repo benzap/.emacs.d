@@ -299,7 +299,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(typescript-mode powershell svg-clock lua-mode projectile neotree neo-tree all-the-icons true zones yasnippet web-mode use-package undo-tree toml-mode racer powerline parinfer-rust-mode org-bullets monokai-theme lispy key-chord js2-mode helm-swoop helm-smex helm-flx helm-company flycheck-rust diminish delight counsel cider cargo auto-package-update a)))
+   '(all-the-icons auto-package-update cargo clojure-mode counsel
+		   diminish flycheck flycheck-rust helm-company
+		   helm-flx helm-smex helm-swoop js2-mode key-chord
+		   monokai-theme neotree org-bullets
+		   parinfer-rust-mode parseedn pkg-info popup
+		   powerline projectile racer sesman spinner toml-mode
+		   transient undo-tree use-package web-mode yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -322,7 +328,7 @@
  '(org-level-8 ((t (:inherit default :weight bold :foreground "#fdfdfd" :font "Source Sans Pro"))))
  '(org-link ((t (:foreground "royal blue" :underline t))))
  '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
- '(org-property-value ((t (:inherit fixed-pitch))) t)
+ '(org-property-value ((t (:inherit fixed-pitch))))
  '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
  '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
  '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))

@@ -27,14 +27,16 @@
   "Return non-nil if NAME is equal to the COMPUTERNAME environment variable."
   (string= (getenv "COMPUTERNAME") name))
 
+(defun is-mac-computer () (string= system-type "darwin"))
+
 (when (display-graphic-p)
   (set-face-attribute 'default nil
 		      :family user-default-mono-font
 		      :height (cond
-			       ((is-computer-name "ZAPTECH-HTPC") 160)
-			       ((is-computer-name "benzap-work-macbook-local") 165)
+			       ((is-computer-name "ZAPTECH-HTPC")     160)
+			       ((is-mac-computer)                     165)
 			       ((is-computer-name "ZAPTECH-SERVER-1") 165)
-			       (t 150))))
+			       (t                                     150))))
 
 
 (provide 'init-appearance)
