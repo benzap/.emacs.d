@@ -11,7 +11,8 @@
 (tool-bar-mode 0)                       ; Remove Tool Bar
 (blink-cursor-mode 0)                   ; Disable Cursor Blink
 (show-paren-mode 1)                     ; Show Matching Parenthesis on hover
-(electric-indent-mode 0)                ; Remove automatic indent after newline
+(electric-indent-mode 1)                ; Add automatic indent after newline
+(setq-default indent-tabs-mode nil)     ; Replace tabs with spaces
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (defalias 'yes-or-no-p 'y-or-n-p)       ; Replace yes/no prompt with y/n prompt
 (setq inhibit-startup-message t         ; Remove Splash Screen
