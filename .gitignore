@@ -1,0 +1,19 @@
+# Compiled
+*.cache
+*.elc
+*.eld
+*~
+custom.el
+elpa/
+ido.last
+.last-package-update-day
+ac-comphist.dat
+eshell/
+url/
+smex-items
+recentf
+undo/
+*~undo-tree~
+*.so
+eln-cache/
+network-security.data
