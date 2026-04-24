@@ -1,6 +1,6 @@
 ;; sanemacs.el Emacs Defaults
 (load "~/.emacs.d/sanemacs.el" nil t)
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 (require 'package)
 
@@ -58,8 +58,8 @@
 
   :config
   ;; Basic performance and UX tweaks
-  (setq company-idle-delay 0.2)                ;; Delay before auto-completion starts (seconds)
-  (setq company-minimum-prefix-length 1)       ;; Minimum characters to trigger completion
+  (setq company-idle-delay 0.3)                ;; Delay before auto-completion starts (seconds)
+  (setq company-minimum-prefix-length 2)       ;; Minimum characters to trigger completion
   (setq company-tooltip-limit 10)              ;; Max items in the popup
   (setq company-dabbrev-code-completion-styles '(basic flex)) ;; Enable fuzzy matching for dabbrev
 
