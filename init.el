@@ -65,7 +65,7 @@
 
   ;; Recommended backend order: prioritize CAPF (LSP integration) and files
   (setq company-backends
-        '((company-capf company-files company-keywords)
+        '((company-capf company-keywords)
           company-dabbrev-code
           company-dabbrev)))
 
