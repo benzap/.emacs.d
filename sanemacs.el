@@ -40,7 +40,8 @@
 (setq use-package-always-ensure t)
 
 ;;; Useful Defaults
-(setq-default cursor-type 'bar)           ; Line-style cursor similar to other text editors
+(setq-default cursor-type 'box)         ; Line-style cursor similar to other text editors
+(set-cursor-color "#FF3333")
 (setq inhibit-startup-screen t)           ; Disable startup screen
 (setq initial-scratch-message "")         ; Make *scratch* buffer blank
 (setq-default frame-title-format '("%b")) ; Make window title the buffer name
@@ -52,6 +53,7 @@
 (global-auto-revert-mode t)               ; Auto-update buffer if file has changed on disk
 (use-package undo-tree                    ; Enable undo-tree, sane undo/redo behavior
   :init (global-undo-tree-mode)
+  :diminish undo-tree-mode
   :config (setq-default undo-tree-auto-save-history nil))
 (add-hook 'before-save-hook
 	  'delete-trailing-whitespace)    ; Delete trailing whitespace on save
