@@ -47,6 +47,7 @@
 (setq-default frame-title-format '("%b")) ; Make window title the buffer name
 (setq ring-bell-function 'ignore)         ; Disable bell sound
 (fset 'yes-or-no-p 'y-or-n-p)             ; y-or-n-p makes answering questions faster
+(setopt use-short-answers t)              ; same as above, but emacs 29+
 (show-paren-mode 1)                       ; Show closing parens by default
 (setq linum-format "%4d ")                ; Line number format
 (delete-selection-mode 1)                 ; Selected text will be overwritten when you start typing

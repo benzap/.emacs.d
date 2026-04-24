@@ -176,3 +176,14 @@
               (neotree-dir project-dir)
               (neotree-find file-name)))
       (message "Could not find git project root."))))
+
+;;
+;; Revert Buffer Keybind
+;;
+(global-set-key (kbd "C-x r") 'revert-buffer)
+
+;; Flycheck
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
