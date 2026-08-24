@@ -2,6 +2,10 @@
 (load "~/.emacs.d/sanemacs.el" nil t)
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
+;; Initial Scratchpad Should be in textpad mode
+(setq initial-major-mode 'fundamental-mode)
+(setq initial-scratch-message "")
+
 (require 'package)
 
 ;; My Libraries.
@@ -187,3 +191,10 @@
   :ensure t
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
+
+
+;; Clojure Config
+(unless (package-installed-p 'clojure-mode)
+  (package-install 'clojure-mode))
+
+;;; init.el ends here
